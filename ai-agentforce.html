@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI &amp; Agentforce UX Case Study — Conversational Service Design | Dapo George</title>
+<meta name="description" content="Designing conversational, multilingual support with Salesforce Agentforce — orchestrating how an AI thinks and acts to deliver predictable, on-brand, hallucination-free guest data." />
+<meta name="author" content="Dapo George" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f2530" />
+<link rel="canonical" href="https://dapogeorge.com/ai-agentforce.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dapo George — Portfolio" />
+<meta property="og:title" content="AI &amp; Agentforce UX Case Study — Conversational Service Design | Dapo George" />
+<meta property="og:description" content="Designing conversational, multilingual support with Salesforce Agentforce — orchestrating how an AI thinks and acts to deliver predictable, on-brand, hallucination-free guest data." />
+<meta property="og:url" content="https://dapogeorge.com/ai-agentforce.html" />
+<meta property="og:image" content="https://dapogeorge.com/images/dapo-george.jpg" />
+<meta property="og:image:alt" content="AI &amp; Agentforce UX Case Study — Conversational Service Design | Dapo George" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI &amp; Agentforce UX Case Study — Conversational Service Design | Dapo George" />
+<meta name="twitter:description" content="Designing conversational, multilingual support with Salesforce Agentforce — orchestrating how an AI thinks and acts to deliver predictable, on-brand, hallucination-free guest data." />
+<meta name="twitter:image" content="https://dapogeorge.com/images/dapo-george.jpg" />
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#4b56d6"/>
+    <circle cx="50" cy="42" r="16" fill="none" stroke="#fff" stroke-width="4"/>
+    <circle cx="50" cy="42" r="5" fill="#fff"/>
+    <rect x="38" y="66" width="24" height="6" rx="3" fill="#fff" opacity="0.8"/>
+    <rect x="42" y="78" width="16" height="6" rx="3" fill="#fff" opacity="0.55"/>
+  </svg>
+</template>
+<div id="progress"></div>
+<a class="site-logo" href="index.html" aria-label="Dapo George — home"><img src="images/logo-dg.png" alt="Dapo George — DG monogram" /></a>
+
+<nav class="nav">
+  <div class="in">
+    <button class="navtoggle" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">Menu</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <div class="navitem active" onclick="if(window.matchMedia('(max-width:760px)').matches)this.classList.toggle('open')">
+        <span class="droptrigger">Work <span class="caret">&#9662;</span></span>
+        <div class="dropmenu">
+          <a href="salesforce.html">Salesforce UI/UX Strategy<span>Enterprise · Dynamic Forms</span></a>
+          <a href="ai-agentforce.html" class="active">AI &amp; Agentforce<span>Conversational · Multilingual</span></a>
+          <a href="prompt-engineering.html">Prompt Engineering<span>Generative UX · Flows</span></a>
+          <a href="design-lab.html">The Design Lab<span>Service · Data · Responsive</span></a>
+          <a href="moyo/index.html">Moyo Exchange<span>Fintech · Service Design</span></a>
+        </div>
+      </div>
+      <a href="process.html">Process</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== PAGE HERO / MANIFESTO ===================== -->
+<header class="wrap hero" id="overview">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Generative UX · Salesforce Agentforce</div>
+      <h1>Moving from random AI responses to predictable design</h1>
+      <p class="dek">We’ve moved past the phase where a simple chatbot is enough. UX is now about orchestrating how an AI thinks and acts inside a complex system, the “hidden” side of Generative UX: prompt engineering and governance that keep the technology grounded in real data.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Role</div><div class="v">Product &amp; Interaction Designer</div></div>
+      <div><div class="k">Platform</div><div class="v">Salesforce Agentforce</div></div>
+      <div><div class="k">Focus</div><div class="v">Generative UX · Governance</div></div>
+      <div><div class="k">Discipline</div><div class="v">AI Interaction Design</div></div>
+    </div>
+  </div>
+  <div class="media-lg" style="margin-top:40px;max-width:var(--measure);">
+    <div class="quote"><p>My goal: agents that don’t just talk back, but <em>anticipate what a user needs</em> before they ask, while keeping the data 100% accurate.</p></div>
+  </div>
+</header>
+
+<!-- ===================== CASE STUDY 01 ===================== -->
+<header class="wrap hero proj-start" id="case01">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Case Study 01 · Coral Cloud Resorts</div>
+      <h1>Orchestrating proactive AI with Agentforce</h1>
+      <p class="dek">Evolving an AI strategy from a basic chatbot into a proactive, on-brand assistant that delivers high-accuracy guest data, without hallucinating.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Client</div><div class="v">Coral Cloud Resorts</div></div>
+      <div><div class="k">Surface</div><div class="v">Guest Success Agent</div></div>
+      <div><div class="k">Model</div><div class="v">GPT-4o Mini · temp 0.3</div></div>
+      <div><div class="k">Scope</div><div class="v">Prompt · Governance · LLM</div></div>
+    </div>
+  </div>
+  <div class="hero-media" style="margin-top:42px;">
+    <div class="browser">
+      <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Prompt Builder · Generate Personalized Schedule · Resolved Prompt → Generated Response</span></div>
+      <img src="images/ai7-preview-en.png" alt="Prompt Builder preview showing a grounded resolved prompt and the AI-generated personalised guest schedule" />
+    </div>
+    <div class="figcap"><b>The outcome.</b> A grounded prompt resolves real CRM data into a personalised, on-brand schedule, the AI introduces itself and lists today’s activities matched to the guest’s interests.</div>
+  </div>
+</header>
+
+<!-- THE CHALLENGE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">The Challenge</span>
+      <h2>From basic chatbot to proactive assistant</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Coral Cloud Resorts needed their AI to feel human and stay on-brand while delivering high-accuracy guest data, and never “hallucinating” incorrect information.</p>
+      <div class="cards">
+        <div class="card"><div class="n">01</div><h4>Feel human &amp; on-brand</h4><p>A generic chatbot tone erodes trust; the agent had to sound like the Guest Success team.</p></div>
+        <div class="card"><div class="n">02</div><h4>No hallucinations</h4><p>Guest-facing answers must be factual and grounded in real CRM data, every time.</p></div>
+        <div class="card"><div class="n">03</div><h4>Safe &amp; governed</h4><p>AI disclaimers and governance protocols for ethical, enterprise-ready deployment.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR 1 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">The Solution · Pillar 1</span>
+      <h2>Environmental governance &amp; readiness</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Before customising the experience, I prepared the foundation, activating the AI ecosystem inside a secure platform environment, ready for enterprise-level tasks.</p>
+      <div class="phase-points">
+        <div class="pt">Activated the core Agentforce and Einstein Generative AI infrastructure.</div>
+        <div class="pt">Handled the disclaimers &amp; governance that make generative AI safe to deploy.</div>
+        <div class="pt">Treated readiness as a UX concern, trust starts before the first response.</div>
+      </div>
+      <div class="duo media-lg">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · Agentforce (Default)</span></div>
+            <img src="images/ai1-turn-on.png" alt="Salesforce setup page turning on Agentforce Default and Einstein Generative AI" /></div>
+          <div class="figcap"><b>Activation.</b> Turning on Agentforce &amp; Einstein Generative AI.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Disclaimers</span></div>
+            <img src="images/ai2-disclaimer.png" alt="Governance disclaimer modal warning that generative AI can produce inaccurate responses" /></div>
+          <div class="figcap"><b>Governance.</b> Acknowledging the generative-AI disclaimer up front.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR 2 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">The Solution · Pillar 2</span>
+      <h2>Contextual personalisation &amp; identity</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">A “human” AI needs a clear identity and access to relevant data. I grounded the prompt template in a specific user context so the agent knew its role, and the guest’s history, before responding.</p>
+      <div class="phase-points">
+        <div class="pt">Defined the agent’s identity and brand persona within the “Guest Success Team.”</div>
+        <div class="pt">Engineered prompt logic with dynamic resources, User Name, Record Snapshots, to eliminate data gaps.</div>
+        <div class="pt">Grounding in real-time CRM data cuts “search fatigue”: the right answer arrives immediately, not after tab-hopping.</div>
+      </div>
+      <div class="duo media-lg">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · Users · Einstein Service Agent</span></div>
+            <img src="images/ai3-agent-user.png" alt="Einstein Service Agent user configuration giving the agent an identity at Coral Cloud Resorts" /></div>
+          <div class="figcap"><b>Identity.</b> The agent gets a defined user, profile, and brand.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Prompt Builder · Template grounding</span></div>
+            <img src="images/ai4-prompt-template.png" alt="Prompt template grounded in User.FirstName, CompanyName and a contact record" /></div>
+          <div class="figcap"><b>Grounding.</b> Dynamic resources bind the prompt to real CRM data.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR 3 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">The Solution · Pillar 3</span>
+      <h2>LLM reliability with Einstein Studio</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">To raise the bar on reliability, I configured a custom model in Einstein Studio and set the Temperature to 0.3.</p>
+      <div class="body"><p><strong>The logic:</strong> a lower temperature makes the LLM more deterministic and focused. In a business-critical environment, “predictable and accurate” beats “creative and random.”</p></div>
+      <div class="quote"><p>Treating <em>temperature</em> as an interaction-design decision, not a technical setting, is what builds user trust.</p></div>
+      <div class="duo media-lg">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Einstein Studio · Model Playground</span></div>
+            <img src="images/ai5-temperature.png" alt="Einstein Studio model configuration with temperature set to 0.3" /></div>
+          <div class="figcap"><b>Temperature 0.3.</b> Tuned for deterministic, factual output.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Einstein Studio · Model</span></div>
+            <img src="images/ai6-model.png" alt="Configured OpenAI GPT-4 Omni Mini model details in Einstein Studio" /></div>
+          <div class="figcap"><b>Model.</b> A configured GPT-4o Mini foundation model.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR 4 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">05</span>
+      <span class="kicker">The Solution · Pillar 4</span>
+      <h2>Validation &amp; global scalability</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I validated the output, confirming the tone shifted from “generic” to “casual yet business-like,” and that the agent held up across languages for a consistent global experience.</p>
+      <div class="phase-points">
+        <div class="pt">Tested generation to verify tone and accuracy against the brand voice.</div>
+        <div class="pt">Stress-tested high-density information across multiple languages.</div>
+        <div class="pt">Confirmed the same grounded logic produces a faithful French response.</div>
+      </div>
+      <div class="duo media-lg">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Preview · English</span></div>
+            <img src="images/ai7-preview-en.png" alt="Generated personalised schedule in English" /></div>
+          <div class="figcap"><b>English.</b> A personalised, on-brand schedule for the guest.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Preview · French</span></div>
+            <img src="images/ai8-preview-fr.png" alt="The same grounded prompt generating a personalised schedule in French" /></div>
+          <div class="figcap"><b>French.</b> The same logic, validated for multi-language scale.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS BAND -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Key results</span>
+      <h2>Predictable, trustworthy, global</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Grounding the AI in real data and tuning it for determinism turned a generic chatbot into a dependable guest-success agent.</p>
+      <div class="stats">
+        <div class="stat"><div class="big">↓ Cognitive load</div><div class="lbl">Instant, filtered answers</div><div class="sub">Guests get personalised schedules without manual searching.</div></div>
+        <div class="stat"><div class="big">0.3 temperature</div><div class="lbl">System integrity</div><div class="sub">Responses stay factual, professional, hallucination-free.</div></div>
+        <div class="stat"><div class="big">Multi-language</div><div class="lbl">Global readiness</div><div class="sub">Consistent brand voice proven across languages.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDY 02 ===================== -->
+<header class="wrap hero proj-start" id="case02">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Case Study 02 · Coral Cloud Resorts</div>
+      <h1>Systems design for conversational discovery</h1>
+      <p class="dek">When an AI can describe an event but can’t give its price, the user has to leave the conversation to search elsewhere, and momentum breaks. I closed that gap by improving the component systems that power the agent’s intelligence.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Client</div><div class="v">Coral Cloud Resorts</div></div>
+      <div><div class="k">Surface</div><div class="v">Experience Agent</div></div>
+      <div><div class="k">Approach</div><div class="v">Systems Design</div></div>
+      <div><div class="k">Scope</div><div class="v">Flow · Actions · Governance</div></div>
+    </div>
+  </div>
+  <div class="media-lg" style="margin-top:40px;max-width:var(--measure);">
+    <div class="quote"><p>I fixed the <em>plumbing</em>, not the script, true systems thinking starts with the data architecture, not the prompt.</p></div>
+  </div>
+</header>
+
+<!-- THE CHALLENGE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">The Challenge</span>
+      <h2>Missing data breaks momentum</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">In a high-energy discovery moment, searching for live events or local activities, a single missing field stalls the whole journey.</p>
+      <div class="cards">
+        <div class="card"><div class="n">01</div><h4>The gap</h4><p>The agent could describe an experience, but couldn’t answer “how much?”</p></div>
+        <div class="card"><div class="n">02</div><h4>The cost</h4><p>Users had to leave the conversation to find price elsewhere, friction and drop-off.</p></div>
+        <div class="card"><div class="n">03</div><h4>The fix</h4><p>Improve the component systems powering the AI, not just the wording of its replies.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 1 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">Phase 1 · Flow Design</span>
+      <h2>Expanding the data layer</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Systems thinking starts with the data architecture. I modified the back-end <strong>Get Experience Details</strong> flow to retrieve the <strong>Price</strong> field, so the plumbing could support the user’s real need: understanding value and cost.</p>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Flow Builder · Get Experience Details, V2 · Get Records</span></div>
+          <img src="images/ai9-flow-price.png" alt="Flow Builder Get Records configuration adding the Price field to the experience retrieval" /></div>
+        <figcaption class="figcap"><b>The data pipeline.</b> Adding <code>Price__c</code> to the retrieval logic makes real-time pricing available to the conversational interface.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 2 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">Phase 2 · Agent Actions</span>
+      <h2>Mapping logic to interface</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Data is only useful if the AI knows how to deliver it. I updated the <strong>Agent Action</strong> instructions to map the new record data into the user-facing response, behavioural design that matches the natural flow of a discovery conversation.</p>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Agentforce Assets · Agent Action · Input &amp; Output instructions</span></div>
+          <img src="images/ai10-agent-action.png" alt="Agent Action input and output instructions mapping the experience record back to the user" /></div>
+        <figcaption class="figcap"><b>The hand-off.</b> Aligning Agent Action instructions with the back-end logic for a seamless, polished delivery.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 3 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">Phase 3 · Topic Instructions</span>
+      <h2>Intent governance</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">To keep the agent focused and hallucination-free, I wrote specific <strong>Topic Instructions</strong>, explicitly telling the AI <em>when</em> to call the retrieval action (e.g. when asked about Name, Description, or Price).</p>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Agentforce Builder · Coral Cloud Experience Agent · Topic Details</span></div>
+          <img src="images/ai11-topic-instructions.png" alt="Topic instructions telling the agent to call Get Experience Details when asked about name, description, type or price" /></div>
+        <figcaption class="figcap"><b>The guardrails.</b> Intent-based governance triggers the right action for the right question, predictable by design.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 4 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">05</span>
+      <span class="kicker">Phase 4 · End-to-End Validation</span>
+      <h2>Closing the loop</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I validated the full journey, from requesting a personalised schedule to drilling into a specific event. The result: a data-rich response with accurate pricing, so the user decides without ever leaving the conversation.</p>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Agentforce Builder · Conversation Preview</span></div>
+          <img src="images/ai12-conversation.png" alt="Conversation preview where the agent answers about white water rafting including a $250 price" /></div>
+        <figcaption class="figcap"><b>The validated experience.</b> “Tell me more about white water rafting” returns description, activity level, type, and <b>Price: $250.00</b>, in one frictionless reply.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS BAND 02 -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Key results &amp; impact</span>
+      <h2>One conversation, zero dead ends</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Connecting back-end Salesforce logic to the front-end experience removed the friction, and built an architecture that scales.</p>
+      <div class="stats">
+        <div class="stat"><div class="big">Systems thinking</div><div class="lbl">Back-end → front-end</div><div class="sub">Salesforce logic wired straight into the UX, less ambiguity for the user.</div></div>
+        <div class="stat"><div class="big">100% in one turn</div><div class="lbl">Reduced friction</div><div class="sub">Everything needed, including price, in a single interaction.</div></div>
+        <div class="stat"><div class="big">0→1 ready</div><div class="lbl">Scalable architecture</div><div class="sub">Modular, add seat locations, bag policies, and more as it grows.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <div class="big">predictable by design.</div>
+    <div class="credit">Generative UX · Agentforce · Dapo George</div>
+  </div>
+</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  function onScroll(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;prog.style.width=(max>0?(h.scrollTop/max*100):0)+'%';}
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+<script>
+  (function(){
+    var last=0;
+    function postH(){var hh=Math.ceil(document.body.getBoundingClientRect().height);if(hh&&Math.abs(hh-last)>1){last=hh;parent.postMessage({type:'cs-embed-height',height:hh},'*');}}
+    function deb(){clearTimeout(window.__csrt);window.__csrt=setTimeout(postH,150);}
+    window.addEventListener('load',postH);window.addEventListener('resize',deb);
+    if(window.ResizeObserver){new ResizeObserver(deb).observe(document.body);}
+    [300,800,1500,2500].forEach(function(t){setTimeout(postH,t);});
+  })();
+</script>
+</body>
+</html>

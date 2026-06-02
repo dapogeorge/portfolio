@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prompt Engineering UX — Salesforce Prompt Builder &amp; Flows | Dapo George</title>
+<meta name="description" content="Generative UX case studies: grounding Salesforce Einstein Prompt Builder in real CRM data, Flex templates and template-triggered flows for predictable, factual AI output." />
+<meta name="author" content="Dapo George" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f2530" />
+<link rel="canonical" href="https://dapogeorge.com/prompt-engineering.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dapo George — Portfolio" />
+<meta property="og:title" content="Prompt Engineering UX — Salesforce Prompt Builder &amp; Flows | Dapo George" />
+<meta property="og:description" content="Generative UX case studies: grounding Salesforce Einstein Prompt Builder in real CRM data, Flex templates and template-triggered flows for predictable, factual AI output." />
+<meta property="og:url" content="https://dapogeorge.com/prompt-engineering.html" />
+<meta property="og:image" content="https://dapogeorge.com/images/pb4-resolved-response.jpg" />
+<meta property="og:image:alt" content="Prompt Engineering UX — Salesforce Prompt Builder &amp; Flows | Dapo George" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Prompt Engineering UX — Salesforce Prompt Builder &amp; Flows | Dapo George" />
+<meta name="twitter:description" content="Generative UX case studies: grounding Salesforce Einstein Prompt Builder in real CRM data, Flex templates and template-triggered flows for predictable, factual AI output." />
+<meta name="twitter:image" content="https://dapogeorge.com/images/pb4-resolved-response.jpg" />
+<link rel="stylesheet" href="site.css" />
+</head>
+<body>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#4b56d6"/>
+    <path d="M50 26 l5 12 12 5 -12 5 -5 12 -5 -12 -12 -5 12 -5 z" fill="#fff"/>
+    <rect x="34" y="70" width="32" height="6" rx="3" fill="#fff" opacity="0.7"/>
+  </svg>
+</template>
+<div id="progress"></div>
+<a class="site-logo" href="index.html" aria-label="Dapo George — home"><img src="images/logo-dg.png" alt="Dapo George — DG monogram" /></a>
+
+<nav class="nav">
+  <div class="in">
+    <button class="navtoggle" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">Menu</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <div class="navitem active" onclick="if(window.matchMedia('(max-width:760px)').matches)this.classList.toggle('open')">
+        <span class="droptrigger">Work <span class="caret">&#9662;</span></span>
+        <div class="dropmenu">
+          <a href="salesforce.html">Salesforce UI/UX Strategy<span>Enterprise · Dynamic Forms</span></a>
+          <a href="ai-agentforce.html">AI &amp; Agentforce<span>Conversational · Multilingual</span></a>
+          <a href="prompt-engineering.html" class="active">Prompt Engineering<span>Generative UX · Flows</span></a>
+          <a href="design-lab.html">The Design Lab<span>Service · Data · Responsive</span></a>
+          <a href="moyo/index.html">Moyo Exchange<span>Fintech · Service Design</span></a>
+        </div>
+      </div>
+      <a href="process.html">Process</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== PAGE HERO / MANIFESTO ===================== -->
+<header class="wrap hero" id="overview">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Generative UX · Prompt Builder &amp; Flow</div>
+      <h1>Prompt engineering, flow integration &amp; content orchestration</h1>
+      <p class="dek">Moving beyond the “chatbox” to a structured AI utility. This series documents the technical orchestration required to turn large language models into reliable UX components, shifting from random outputs to grounded, predictable, context-aware systems that cut cognitive load and eliminate information fragmentation.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Role</div><div class="v">Product &amp; Interaction Designer</div></div>
+      <div><div class="k">Platform</div><div class="v">Salesforce Einstein</div></div>
+      <div><div class="k">Focus</div><div class="v">Prompt Engineering</div></div>
+      <div><div class="k">Discipline</div><div class="v">Content Orchestration</div></div>
+    </div>
+  </div>
+  <div class="media-lg" style="margin-top:38px;max-width:var(--measure);">
+    <div class="chips">
+      <span class="chip">Prompt Builder</span>
+      <span class="chip">Flow Builder</span>
+      <span class="chip">Einstein AI</span>
+      <span class="chip">Data Cloud</span>
+      <span class="chip">GPT-4o Mini</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== CASE STUDY 01 ===================== -->
+<header class="wrap hero proj-start" id="case01">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Case Study 01 · Coral Cloud Resorts</div>
+      <h1>Orchestrating predictable content with Prompt Builder</h1>
+      <p class="dek">How do we stop AI from guessing? By grounding it. I built a Field Generation template that uses real-time CRM data to turn complex case histories into 100-word “Quick Summaries”, putting the most important context exactly where support agents need it.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Client</div><div class="v">Coral Cloud Resorts</div></div>
+      <div><div class="k">Surface</div><div class="v">Case Record Page</div></div>
+      <div><div class="k">Pattern</div><div class="v">Field Generation</div></div>
+      <div><div class="k">Model</div><div class="v">GPT-4o Mini</div></div>
+    </div>
+  </div>
+  <div class="hero-media" style="margin-top:42px;">
+    <div class="browser">
+      <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Prompt Builder · Quick Summary · Resolved Prompt → Generated Response</span></div>
+      <img src="images/pb4-resolved-response.jpg" alt="Prompt Builder showing the resolved prompt grounded in case data and the generated single-paragraph summary" />
+    </div>
+    <div class="figcap"><b>The outcome.</b> A grounded prompt concatenates real case comments, subject, priority and type, and returns a single, factual “Quick Summary” in ~3 seconds.</div>
+  </div>
+</header>
+
+<!-- THE CHALLENGE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">The Challenge</span>
+      <h2>Context overload on every new case</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Support agents at Coral Cloud had to manually parse long threads of comments, subjects and metadata just to understand a case, slowing “time to resolution” and fragmenting the experience.</p>
+      <div class="body"><p>The goal: build a system that auto-summarises complex case data into a single, high-utility paragraph, <strong>without losing factual accuracy</strong>.</p></div>
+      <div class="cards">
+        <div class="card"><div class="n">01</div><h4>Manual synthesis</h4><p>Agents read entire comment threads before they could even start helping.</p></div>
+        <div class="card"><div class="n">02</div><h4>Slower resolution</h4><p>Time spent parsing history is time not spent solving the problem.</p></div>
+        <div class="card"><div class="n">03</div><h4>Fragmented context</h4><p>Key facts scattered across subject, priority, type and comments.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 1 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">The Solution · Step 1</span>
+      <h2>Environmental readiness &amp; infrastructure</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Before designing the logic, I made sure the generative ecosystem was active, enabling the Einstein Generative AI layers so the LLM could communicate securely with proprietary data.</p>
+      <div class="phase-points">
+        <div class="pt">Turned on Einstein &amp; the generative AI infrastructure inside the platform.</div>
+        <div class="pt">Integrated AI directly into the record page to reduce “app switching.”</div>
+        <div class="pt">Kept the user focused on the case, not hunting across tabs for summaries.</div>
+      </div>
+      <div class="duo media-lg">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · Welcome, Dapo</span></div>
+            <img src="images/pb1-setup-home.png" alt="Salesforce Setup home environment" /></div>
+          <div class="figcap"><b>The environment.</b> The Salesforce Setup foundation.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Einstein Setup · Turn on Einstein</span></div>
+            <img src="images/pb2-einstein-on.png" alt="Einstein Setup page with Turn on Einstein toggled on" /></div>
+          <div class="figcap"><b>Readiness.</b> Enabling Einstein Generative AI.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">The Solution · Step 2</span>
+      <h2>Dynamic grounding &amp; resource mapping</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">A summary is only useful if it’s accurate. I replaced static placeholders with <strong>dynamic merge fields</strong>, mapping the prompt to pull specifically from <code>Case.CaseComments</code>, <code>Case.Subject</code> and <code>Case.Priority</code>.</p>
+      <div class="quote"><p>Instead of “summarise this case,” I instructed it to <em>“summarise the concatenation of these specific data points.”</em> That’s grounding, the LLM only uses facts present in the record.</p></div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Prompt Builder · Quick Summary · Template</span></div>
+          <img src="images/pb3-prompt-template.png" alt="Prompt template using dynamic merge fields for case comments, subject, priority and type" /></div>
+        <figcaption class="figcap"><b>Grounded by design.</b> Dynamic merge fields bind the prompt to the record’s real data, no guessing.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 3 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">The Solution · Step 3</span>
+      <h2>Deterministic governance: the guardrails</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">To keep the design predictable, I selected <strong>GPT-4o Mini</strong> and applied strict instructional guardrails, constraining the output to a single short paragraph so the AI never becomes verbose.</p>
+      <div class="phase-points">
+        <div class="pt">One consistent format means agents build a reliable mental model of where to look.</div>
+        <div class="pt">A bounded length protects the user’s cognitive load on every case.</div>
+        <div class="pt">Predictable structure &gt; creative variation for a business-critical tool.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 4 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">05</span>
+      <span class="kicker">The Solution · Step 4</span>
+      <h2>Interface integration with Dynamic Forms</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">The final step brought the AI to the user’s fingertips. I upgraded the Case record page to Dynamic Forms and associated the “Quick Summary” field with the prompt template, adding the “Einstein Sparkle” that signals AI assistance is available.</p>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Lightning App Builder · Case Record Page · Quick Summary</span></div>
+          <img src="images/pb5-record-page.png" alt="Case record page in Lightning App Builder with the Quick Summary field and Einstein sparkle icon" /></div>
+        <figcaption class="figcap"><b>At their fingertips.</b> The Quick Summary field lives in the record’s Case Information, AI-generated in place, no app switching.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS BAND -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Key results &amp; impact</span>
+      <h2>Seconds, not minutes. 100% factual</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Grounding the prompt in real case data turned minutes of manual reading into an instant, trustworthy summary.</p>
+      <div class="stats">
+        <div class="stat"><div class="big">~5 seconds</div><div class="lbl">Efficiency gain</div><div class="sub">vs. 2–3 minutes of manual reading per case.</div></div>
+        <div class="stat"><div class="big">Zero-friction UI</div><div class="lbl">In-context generation</div><div class="sub">Generated right inside the Quick Summary field.</div></div>
+        <div class="stat"><div class="big">100% factual</div><div class="lbl">High fidelity</div><div class="sub">Grounded in case comments, no hallucinations.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDY 02 ===================== -->
+<header class="wrap hero proj-start" id="case02">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Case Study 02 · Coral Cloud Resorts</div>
+      <h1>Context-aware newsletters with Flex templates</h1>
+      <p class="dek">Personalisation often fails to a “data silo” problem, guest reservations and on-site experiences live in separate objects, and static templates can’t bridge them. I built a <strong>Flex Prompt Template</strong>: a versatile, entry-point-free AI asset that synthesises multiple data sources into one cohesive, branded guest newsletter.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Client</div><div class="v">Coral Cloud Resorts</div></div>
+      <div><div class="k">Asset</div><div class="v">Flex Prompt Template</div></div>
+      <div><div class="k">Persona</div><div class="v">“Director of Fun”</div></div>
+      <div><div class="k">Scope</div><div class="v">Omnichannel · Flow-ready</div></div>
+    </div>
+  </div>
+  <div class="media-lg" style="margin-top:40px;max-width:var(--measure);">
+    <div class="quote"><p>A Flex template acts as a central intelligence hub, portable across Apex, Flows, or Agentforce, so the same <em>personalised voice</em> shows up at every guest touchpoint.</p></div>
+  </div>
+</header>
+
+<!-- THE CHALLENGE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">The Challenge</span>
+      <h2>Personalisation broken by data silos</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Guest reservation data and on-site experience schedules lived in separate objects, and static email templates couldn’t bridge the gap, so communications stayed generic.</p>
+      <div class="cards">
+        <div class="card"><div class="n">01</div><h4>Data silos</h4><p>Reservations and experiences sat in different objects, never combined.</p></div>
+        <div class="card"><div class="n">02</div><h4>Generic comms</h4><p>Static templates couldn’t personalise around a guest’s actual stay.</p></div>
+        <div class="card"><div class="n">03</div><h4>Fragmented view</h4><p>Guests never saw a holistic picture of their vacation in one place.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 1 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">Phase 1 · Resource Mapping</span>
+      <h2>Cross-object grounding</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">To build a complete guest mental model, the AI needed more than one data stream. I configured the template with <strong>dual inputs</strong>, the External Reservation object (stay dates, room types) and the Experience object (activity details).</p>
+      <div class="body"><p>Mapping disparate data into a single prompt eliminates <strong>information fragmentation</strong>, the guest gets a holistic view of their vacation in one interaction.</p></div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">New Prompt Template · Flex · Inputs</span></div>
+          <img src="images/pb6-flex-inputs.png" alt="New Flex prompt template with two inputs: External Reservation and Experience" /></div>
+        <figcaption class="figcap"><b>Dual inputs.</b> A Flex template type takes Reservation <em>and</em> Experience objects as grounded data sources.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 2 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">Phase 2 · Persona Engineering</span>
+      <h2>The “Director of Fun” voice</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I established a specific brand voice by assigning the AI the role of <strong>“Director of Fun,”</strong> with strict stylistic guardrails: active voice, no filler words, a three-paragraph limit.</p>
+      <div class="quote"><p>Defining the persona <em>before</em> the task shifts the output from a cold data summary to a warm, welcoming experience that builds brand affinity.</p></div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Prompt Builder · New Guest Newsletter · Template</span></div>
+          <img src="images/pb7-newsletter-prompt.png" alt="Prompt template written in the Director of Fun persona with grounded reservation and experience fields" /></div>
+        <figcaption class="figcap"><b>Persona first.</b> The prompt opens by casting the agent, then grounds every detail in real reservation and experience fields.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 3 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">Phase 3 · Proactive Discovery</span>
+      <h2>Serving experiences, not searches</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">To drive engagement, I engineered a structured “Experience” section, turning technical record data into a bulleted list of activities that works as a conversational discovery tool.</p>
+      <div class="body"><p>This cuts the guest’s <strong>search effort</strong>: instead of hunting for a resort map or schedule, the most relevant activities are served directly, based on their reservation context.</p></div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Preview · Resolved Prompt → Generated Newsletter</span></div>
+          <img src="images/pb8-newsletter-single.png" alt="Generated newsletter welcoming the guest with check-in details and a Sunrise Yoga experience" /></div>
+        <figcaption class="figcap"><b>Discovery built in.</b> Check-in details plus a curated experience (Sunrise Yoga) arrive in one branded, on-voice newsletter.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 4 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">05</span>
+      <span class="kicker">Phase 4 · Scalability</span>
+      <h2>System scalability &amp; flow readiness</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">A guest’s stay involves more than one activity, so I built the template to be <strong>Flow-compatible</strong>, scaling from a single-activity preview to a multi-day itinerary by injecting collections of data via a Template-Triggered Prompt Flow.</p>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Preview · Version 2 · Multi-experience newsletter</span></div>
+          <img src="images/pb9-newsletter-multi.png" alt="Version 2 newsletter listing multiple experiences: Family Karaoke Night and Sunrise Yoga" /></div>
+        <figcaption class="figcap"><b>Scales cleanly.</b> The same template renders a multi-activity itinerary, Family Karaoke Night <em>and</em> Sunrise Yoga, from a collection of records.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS BAND 02 -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Key results &amp; impact</span>
+      <h2>One voice, zero clicks, fully modular</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Synthesising siloed data through a persona-driven Flex template produced a personalised newsletter that scales across every channel.</p>
+      <div class="stats">
+        <div class="stat"><div class="big">Cohesive voice</div><div class="lbl">Brand consistency</div><div class="sub">A consistent “Director of Fun” persona across automated comms.</div></div>
+        <div class="stat"><div class="big">Zero-click</div><div class="lbl">Reduced interaction cost</div><div class="sub">Check-in details + activity discovery in one personalised newsletter.</div></div>
+        <div class="stat"><div class="big">Modular</div><div class="lbl">Reusable everywhere</div><div class="sub">Same logic for mobile app, guest portal, or email triggers.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDY 03 ===================== -->
+<header class="wrap hero proj-start" id="case03">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Case Study 03 · Coral Cloud Resorts</div>
+      <h1>Scaling AI intelligence with template-triggered flows</h1>
+      <p class="dek">A single data point rarely tells the whole story. Previously the AI could only “see” one experience at a time, but a guest stays for multiple days and needs a full itinerary. The challenge was technical: how to inject an entire collection of dynamic records into one prompt without manual data entry.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Client</div><div class="v">Coral Cloud Resorts</div></div>
+      <div><div class="k">Mechanism</div><div class="v">Template-Triggered Flow</div></div>
+      <div><div class="k">Pattern</div><div class="v">1-to-Many</div></div>
+      <div><div class="k">Approach</div><div class="v">Systems Design</div></div>
+    </div>
+  </div>
+  <div class="media-lg" style="margin-top:40px;max-width:var(--measure);">
+    <div class="quote"><p>I engineered a <em>Prompt-Flow bridge</em>, a data harvester that turns the LLM from a record-summariser into an itinerary orchestrator.</p></div>
+  </div>
+</header>
+
+<!-- THE CHALLENGE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">The Challenge</span>
+      <h2>One prompt, many records</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">The AI could summarise a single experience, but a real itinerary spans days and many activities, and feeding a whole collection into one prompt by hand doesn’t scale.</p>
+      <div class="cards">
+        <div class="card"><div class="n">01</div><h4>Single-record ceiling</h4><p>The template could only “see” one experience at a time.</p></div>
+        <div class="card"><div class="n">02</div><h4>Manual bottleneck</h4><p>Adding every event by hand is slow, brittle, and unscalable.</p></div>
+        <div class="card"><div class="n">03</div><h4>Incomplete plumbing</h4><p>Without all the data, the AI writes an incomplete story.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 1 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">Phase 1 · Get Records</span>
+      <h2>Automated data retrieval</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I replaced manual resource selection with an automated <strong>Get Records</strong> element, a background query that retrieves all active resort events at once.</p>
+      <div class="body"><p>This moves the system from <strong>reactive</strong> (waiting for someone to pick an event) to <strong>proactive</strong> (automatically finding every relevant event), cutting interaction cost for the internal team.</p></div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Flow Builder · Get Experience Newsletter Data · Get Records → Loop</span></div>
+          <img src="images/pb10-flow-loop.png" alt="Template-triggered flow with a Get Records element feeding a Loop over guest experiences" /></div>
+        <figcaption class="figcap"><b>The harvester.</b> A Get Records query gathers every active experience, then a Loop iterates the whole collection.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 2 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">Phase 2 · Looping</span>
+      <h2>Pattern recognition, not data dumps</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">To give the LLM clean, structured data, I added a <strong>Loop</strong> element that iterates the collection, capturing each Name, Location and Description in a predictable pattern.</p>
+      <div class="quote"><p>Instead of a messy data dump, the loop organises information into a consistent shape, which is what lets the LLM hold its <em>output integrity</em>.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 3 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">Phase 3 · The Connector</span>
+      <h2>Defining prompt instructions</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Inside the loop, I used the <strong>Add Prompt Instructions</strong> element, a UX-to-logic connector that feeds formatted text back to Prompt Builder, so the AI knows exactly where one event ends and the next begins.</p>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Flow · Add Prompt Instructions · {!Loop_Experiences …}</span></div>
+          <img src="images/pb11-prompt-instructions.png" alt="Add Prompt Instructions element formatting each looped experience's name, location and description" /></div>
+        <figcaption class="figcap"><b>The connector.</b> Each iteration appends a clean <code>Name · Location · Description</code> block for the next event.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- PHASE 4 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">05</span>
+      <span class="kicker">Phase 4 · Integration</span>
+      <h2>Closing the loop in Prompt Builder</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Back in Prompt Builder, I swapped the static single-record fields for the new <strong>Flow Resource</strong>, letting the “Director of Fun” summarise a dynamic list of events in one cohesive newsletter.</p>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Prompt Builder · Flows: Get Experience Newsletter Data</span></div>
+          <img src="images/pb12-flow-integration.png" alt="Prompt template now sourcing its experience list from the flow resource instead of a single static record" /></div>
+        <figcaption class="figcap"><b>Wired up.</b> One swap, static fields → flow resource, turns a single-record summary into a full, dynamic itinerary.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS BAND 03 -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Key results &amp; impact</span>
+      <h2>From one record to a living itinerary</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">A flow-powered prompt let the AI handle real one-to-many relationships, a complete, live schedule instead of a single sample.</p>
+      <div class="stats">
+        <div class="stat"><div class="big">1-to-Many</div><div class="lbl">Information density</div><div class="sub">One reservation, many experiences, handled seamlessly.</div></div>
+        <div class="stat"><div class="big">Live inventory</div><div class="lbl">Dynamic personalisation</div><div class="sub">Schedules tailored to the resort’s real-time events.</div></div>
+        <div class="stat"><div class="big">Always complete</div><div class="lbl">Reduced friction</div><div class="sub">The flow guarantees the data plumbing before the AI writes.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <div class="big">structured, not random.</div>
+    <div class="credit">Generative UX · Prompt Builder · Dapo George</div>
+  </div>
+</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  function onScroll(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;prog.style.width=(max>0?(h.scrollTop/max*100):0)+'%';}
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+<script>
+  (function(){
+    var last=0;
+    function postH(){var hh=Math.ceil(document.body.getBoundingClientRect().height);if(hh&&Math.abs(hh-last)>1){last=hh;parent.postMessage({type:'cs-embed-height',height:hh},'*');}}
+    function deb(){clearTimeout(window.__csrt);window.__csrt=setTimeout(postH,150);}
+    window.addEventListener('load',postH);window.addEventListener('resize',deb);
+    if(window.ResizeObserver){new ResizeObserver(deb).observe(document.body);}
+    [300,800,1500,2500].forEach(function(t){setTimeout(postH,t);});
+  })();
+</script>
+</body>
+</html>

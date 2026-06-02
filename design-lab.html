@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Design Lab — Service Blueprints, Data Viz &amp; Responsive UI | Dapo George</title>
+<meta name="description" content="Experiments in design method: a Deliveroo service blueprint, a fintech remittance “invisible tax” data visualisation, and the Dachi multi-platform responsive study." />
+<meta name="author" content="Dapo George" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f2530" />
+<link rel="canonical" href="https://dapogeorge.com/design-lab.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dapo George — Portfolio" />
+<meta property="og:title" content="The Design Lab — Service Blueprints, Data Viz &amp; Responsive UI | Dapo George" />
+<meta property="og:description" content="Experiments in design method: a Deliveroo service blueprint, a fintech remittance “invisible tax” data visualisation, and the Dachi multi-platform responsive study." />
+<meta property="og:url" content="https://dapogeorge.com/design-lab.html" />
+<meta property="og:image" content="https://dapogeorge.com/images/dl-deliveroo-blueprint.jpg" />
+<meta property="og:image:alt" content="The Design Lab — Service Blueprints, Data Viz &amp; Responsive UI | Dapo George" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Design Lab — Service Blueprints, Data Viz &amp; Responsive UI | Dapo George" />
+<meta name="twitter:description" content="Experiments in design method: a Deliveroo service blueprint, a fintech remittance “invisible tax” data visualisation, and the Dachi multi-platform responsive study." />
+<meta name="twitter:image" content="https://dapogeorge.com/images/dl-deliveroo-blueprint.jpg" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  /* page-specific */
+  .lab-intro{padding:84px 0 26px;}
+  .lab-intro h1{font-family:var(--mono);font-weight:600;font-size:clamp(30px,3.6vw,48px);line-height:1.16;letter-spacing:-.02em;text-transform:lowercase;margin:20px 0 0;max-width:16ch;}
+  .lab-intro .dek{font-size:19px;line-height:1.6;color:var(--ink-2);max-width:60ch;margin-top:24px;}
+
+  /* section index strip */
+  .lab-index{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:12px;overflow:hidden;margin-top:38px;}
+  .lab-index a{background:var(--surface);padding:20px 22px;text-decoration:none;transition:.15s;display:block;}
+  .lab-index a:hover{background:var(--accent-soft);}
+  .lab-index .t{font-family:var(--mono);font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);}
+  .lab-index h4{font-family:var(--sans);font-weight:600;font-size:16px;margin:10px 0 0;color:var(--ink);}
+  .lab-index .soon{color:var(--ink-3);}
+  .lab-index .badge{font-family:var(--mono);font-size:10px;letter-spacing:.8px;color:var(--ink-3);border:1px solid var(--hair);border-radius:999px;padding:2px 8px;display:inline-block;margin-top:10px;}
+  @media(max-width:720px){.lab-index{grid-template-columns:1fr;}}
+
+  /* full-bleed blueprint */
+  .blueprint{margin-top:8px;}
+  .blueprint .frame-wide{background:var(--surface);border:1px solid var(--hair);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px -28px rgba(12,27,51,.4);}
+  .blueprint .frame-wide .chrome{display:flex;align-items:center;gap:7px;padding:13px 16px;border-bottom:1px solid var(--hair);background:#fbfcfe;}
+  .blueprint .frame-wide .chrome .d{width:11px;height:11px;border-radius:50%;background:var(--hair);}
+  .blueprint .frame-wide .chrome .u{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin-left:10px;}
+  .blueprint .frame-wide .chrome .zoom{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:999px;padding:3px 11px;}
+  .blueprint img{width:100%;cursor:zoom-in;display:block;}
+
+  /* lightbox */
+  .lightbox{position:fixed;inset:0;background:rgba(8,15,28,.92);z-index:200;display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;}
+  .lightbox.on{display:flex;}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.5);}
+  .lightbox .x{position:absolute;top:20px;right:26px;font-family:var(--mono);font-size:13px;color:#fff;opacity:.8;}
+
+  /* insights list */
+  .insights{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:12px;overflow:hidden;}
+  .insight{background:var(--surface);padding:24px;}
+  .insight .ix{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--accent);}
+  .insight h4{font-family:var(--sans);font-weight:600;font-size:16.5px;margin:12px 0 8px;}
+  .insight p{font-size:14.5px;line-height:1.6;color:var(--ink-3);margin:0;}
+  @media(max-width:620px){.insights{grid-template-columns:1fr;}}
+
+  /* pull quote */
+  .pullquote{max-width:var(--measure);}
+  .pullquote p{font-family:var(--mono);font-weight:500;font-size:clamp(19px,2.2vw,25px);line-height:1.4;letter-spacing:-.01em;color:var(--ink);margin:0;text-transform:lowercase;}
+  .pullquote p::before{content:"“";color:var(--accent);}
+  .pullquote p::after{content:"”";color:var(--accent);}
+
+  .legend-row{display:flex;gap:22px;flex-wrap:wrap;margin-top:4px;}
+  .legend-row .lg{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--ink-2);}
+  .legend-row .sw{width:14px;height:14px;border-radius:4px;flex:none;}
+
+  /* ---- Section B: data viz ---- */
+  .dataviz-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:start;}
+  @media(max-width:900px){.dataviz-grid{grid-template-columns:1fr;gap:34px;}}
+  .chart-frame{background:var(--surface);border:1px solid var(--hair);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px -30px rgba(12,27,51,.35);}
+  .chart-frame .chrome{display:flex;align-items:center;gap:7px;padding:12px 15px;border-bottom:1px solid var(--hair);background:#fbfcfe;}
+  .chart-frame .chrome .d{width:11px;height:11px;border-radius:50%;background:var(--hair);}
+  .chart-frame .chrome .u{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:10px;}
+  .chart-frame .chrome .live{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.6px;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 9px;}
+  .chart-frame img{width:100%;display:block;}
+  .chart-embed-slot{margin-top:14px;background:var(--accent-soft);border:1px dashed var(--accent);border-radius:10px;padding:14px 16px;font-family:var(--mono);font-size:11.5px;color:var(--ink-2);line-height:1.6;}
+  .chart-embed-slot b{color:var(--accent);}
+
+  /* big stat callout */
+  .bigstat{border-left:3px solid var(--accent);padding:4px 0 4px 20px;}
+  .bigstat .n{font-family:var(--mono);font-weight:600;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--ink);letter-spacing:-.02em;}
+  .bigstat .c{font-size:14.5px;color:var(--ink-3);margin-top:10px;max-width:42ch;line-height:1.55;}
+  .bigstat .n em{color:var(--accent);font-style:normal;}
+
+  /* ---- Section C: responsive showcase ---- */
+  .device-row{display:grid;grid-template-columns:0.62fr 1fr;gap:30px;align-items:end;}
+  @media(max-width:820px){.device-row{grid-template-columns:1fr;gap:26px;}}
+  .dev{background:var(--surface);border:1px solid var(--hair);border-radius:14px;overflow:hidden;box-shadow:0 20px 50px -28px rgba(12,27,51,.35);}
+  .dev .cap{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid var(--hair);background:#fbfcfe;font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.4px;}
+  .dev .cap b{color:var(--accent);font-weight:600;}
+  .dev .cap .px{margin-left:auto;color:var(--ink-3);}
+  .dev img{width:100%;display:block;background:#eef1f5;}
+  .dev.mobile{border-radius:20px;}
+  .dev.mobile img{padding:0;}
+  .full-shot{background:var(--surface);border:1px solid var(--hair);border-radius:14px;overflow:hidden;box-shadow:0 20px 50px -28px rgba(12,27,51,.35);margin-top:30px;}
+  .full-shot .cap{display:flex;align-items:center;gap:8px;padding:11px 15px;border-bottom:1px solid var(--hair);background:#fbfcfe;font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.4px;}
+  .full-shot .cap b{color:var(--accent);font-weight:600;}
+  .full-shot .cap .px{margin-left:auto;}
+  .full-shot img{width:100%;display:block;cursor:zoom-in;}
+</style>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#4b56d6"/>
+    <circle cx="30" cy="34" r="6" fill="#fff"/><circle cx="50" cy="34" r="6" fill="#fff" opacity="0.8"/><circle cx="70" cy="34" r="6" fill="#fff" opacity="0.6"/>
+    <rect x="26" y="33" width="48" height="2" fill="#fff" opacity="0.7"/>
+    <rect x="24" y="58" width="52" height="4" rx="2" fill="#fff"/>
+    <rect x="32" y="68" width="36" height="4" rx="2" fill="#fff" opacity="0.6"/>
+  </svg>
+</template>
+<div id="progress"></div>
+<a class="site-logo" href="index.html" aria-label="Dapo George — home"><img src="images/logo-dg.png" alt="Dapo George — DG monogram" /></a>
+
+<nav class="nav">
+  <div class="in">
+    <button class="navtoggle" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">Menu</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <div class="navitem active" onclick="if(window.matchMedia('(max-width:760px)').matches)this.classList.toggle('open')">
+        <span class="droptrigger">Work <span class="caret">&#9662;</span></span>
+        <div class="dropmenu">
+          <a href="salesforce.html">Salesforce UI/UX Strategy<span>Enterprise · Dynamic Forms</span></a>
+          <a href="ai-agentforce.html">AI &amp; Agentforce<span>Conversational · Multilingual</span></a>
+          <a href="prompt-engineering.html">Prompt Engineering<span>Generative UX · Flows</span></a>
+          <a href="design-lab.html" class="active">The Design Lab<span>Service · Data · Responsive</span></a>
+          <a href="moyo/index.html">Moyo Exchange<span>Fintech · Service Design</span></a>
+        </div>
+      </div>
+      <a href="process.html">Process</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== PAGE INTRO ===================== -->
+<header class="wrap lab-intro" id="lab">
+  <div class="eyebrow">The Design Lab</div>
+  <h1>experiments in design method</h1>
+  <p class="dek">A working showcase of design features beyond the screen, from intricate workflows and data visualisations to interactive solutions, service design blueprints, and more. Each section explores a different method for making complex systems legible.</p>
+
+  <div class="lab-index">
+    <a href="#service-design">
+      <div class="t">Section A</div>
+      <h4>Service Design: the Deliveroo ecosystem</h4>
+      <span class="badge">Service Blueprint</span>
+    </a>
+    <a href="#data-viz">
+      <div class="t">Section B</div>
+      <h4>Data Visualisation: the “invisible tax”</h4>
+      <span class="badge">Fintech · Datawrapper</span>
+    </a>
+    <a href="#responsive">
+      <div class="t">Section C</div>
+      <h4>Responsive Ecosystem: Dachi redesign</h4>
+      <span class="badge">Multi-platform UI</span>
+    </a>
+  </div>
+</header>
+
+<!-- ===================== SECTION A, SERVICE DESIGN ===================== -->
+<header class="wrap hero proj-start" id="service-design">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Section A · Service Design</div>
+      <h1>Orchestrating the Deliveroo ecosystem</h1>
+      <p class="dek">A comprehensive blueprint mapping the end-to-end synchronisation of customers, restaurants, and riders, the multi-stakeholder lifecycle that turns a single tap into national infrastructure.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Method</div><div class="v">Service Blueprint</div></div>
+      <div><div class="k">Scope</div><div class="v">End-to-End Lifecycle</div></div>
+      <div><div class="k">Stakeholders</div><div class="v">Customer · Restaurant · Rider</div></div>
+      <div><div class="k">Lens</div><div class="v">Line of Visibility</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- the blueprint, full width -->
+<section class="wrap blueprint" style="max-width:1320px;padding-top:6px;">
+  <div class="frame-wide">
+    <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Service Blueprint · Deliveroo · Front Stage → Line of Visibility → Back Stage</span><a href="#" class="zoom" onclick="openLB();return false;">⤢ zoom</a></div>
+    <img src="images/dl-deliveroo-blueprint.jpg" alt="End-to-end Deliveroo service blueprint mapping customer, restaurant and rider actions across the line of visibility" onclick="openLB()" />
+  </div>
+  <div class="wrap" style="padding:0;max-width:760px;margin-top:18px;">
+    <div class="legend-row">
+      <div class="lg"><span class="sw" style="background:#cbbfc0;"></span>Customer</div>
+      <div class="lg"><span class="sw" style="background:#f0820e;"></span>App</div>
+      <div class="lg"><span class="sw" style="background:#46d6b9;"></span>Ryder</div>
+      <div class="lg"><span class="sw" style="background:#3f7fd6;"></span>Restaurant</div>
+      <div class="lg"><span class="sw" style="background:#fff;border:1px solid var(--hair);"></span>Process Support</div>
+      <div class="lg"><span class="sw" style="background:#fff;border:1.5px dashed #e2483d;"></span>Key points</div>
+    </div>
+    <p class="figcap" style="margin-top:14px;">Click the blueprint to view it full-screen. Four swim-lanes, <b>Customer’s Journey · Front Stage · Back Stage · Supporting Process</b>, are split by the <b>Line of Visibility</b>: above it, what the user sees; below it, the human actions and logistics that must stay in lock-step.</p>
+  </div>
+</section>
+
+<!-- THE BRIEF -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">The Brief</span>
+      <h2>Mapping the invisible chain</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I developed this blueprint to visualise how a simple food order triggers a complex chain of backstage events.</p>
+      <div class="body"><p>By identifying the <strong>Line of Visibility</strong>, I mapped exactly where automated app responses (Front Stage) must align with human actions and third-party logistics (Back Stage), surfacing the operational blockers that standard screen-level design never sees.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGIC INSIGHTS -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">Strategic insights</span>
+      <h2>What the blueprint revealed</h2>
+    </header>
+    <div class="sec-body stack">
+      <div class="insights">
+        <div class="insight"><div class="ix">A</div><h4>Orchestrated backstage logic</h4><p>One payment-success trigger simultaneously assigns a Rider, alerts the Restaurant, and starts the “Distance Algorithm” for an accurate delivery estimate.</p></div>
+        <div class="insight"><div class="ix">B</div><h4>Touchpoint synchronisation</h4><p>Pinpointed where the App must act as the “bridge”, translating a Rider’s real-time GPS into a customer-facing “Arriving in Minutes” notification.</p></div>
+        <div class="insight"><div class="ix">C</div><h4>Support-process integration</h4><p>Mapped invisible processes, Recommendation Algorithms, Secure Payment Gateways, as the foundational infrastructure of a seamless experience.</p></div>
+        <div class="insight"><div class="ix">D</div><h4>Service design impact</h4><p>Identified a <strong>15% friction point</strong> in the Rider-to-Kitchen handoff by mapping back-stage support processes usually overlooked in UI design.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE BAND -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">The takeaway</span>
+      <h2>Designing the lines, not just the screens</h2>
+    </header>
+    <div class="sec-body stack">
+      <div class="pullquote">
+        <p style="color:#fff;">i don’t just design screens; i design the lines of visibility that make national infrastructure work</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION B, DATA VISUALISATION ===================== -->
+<header class="wrap hero proj-start" id="data-viz">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Section B · Data Visualisation (Fintech)</div>
+      <h1>Remittance data &amp; the “invisible tax”</h1>
+      <p class="dek">A strategic breakdown of the global remittance gap that informs my fintech logic, and the data foundation for Moyo.Exchange. The goal: use Service Design to bypass the “middleman” friction that keeps regional fees artificially high.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Domain</div><div class="v">Fintech · Remittance</div></div>
+      <div><div class="k">Tool</div><div class="v">Datawrapper</div></div>
+      <div><div class="k">Source</div><div class="v">World Bank</div></div>
+      <div><div class="k">Informs</div><div class="v">Moyo.Exchange</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- the market opportunity + chart -->
+<section class="sec" style="border-top:none;padding-top:8px;">
+  <div class="wrap">
+    <div class="dataviz-grid">
+
+      <!-- left: narrative -->
+      <div class="stack" style="gap:30px;">
+        <div>
+          <span class="kicker" style="color:var(--accent);">The market opportunity</span>
+          <p class="lead" style="margin-top:14px;">Global remittance costs fell from 9.3% in 2011 to a record-low 6.5% in 2020, but Sub-Saharan Africa remains an outlier with the highest transaction costs in the world.</p>
+        </div>
+        <div class="bigstat">
+          <div class="n">8.5%<span style="color:var(--ink-3);"> avg cost</span></div>
+          <div class="c">Average cost to send money into Sub-Saharan Africa, nearly <strong>triple</strong> the 3.0% UN Sustainable Development Goal.</div>
+        </div>
+        <div class="bigstat">
+          <div class="n"><em>+30%</em> premium</div>
+          <div class="c">What users in the region pay versus the global average, a “tax on poverty” that drains millions from local economies.</div>
+        </div>
+      </div>
+
+      <!-- right: the chart -->
+      <div>
+        <figure class="chart-frame" style="margin:0;">
+          <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Datawrapper · Average cost of sending $200 by region · 2011 vs 2020</span><span class="live">● interactive</span></div>
+          <iframe title="Average costs of sending $200 by region, 2011 and 2020." aria-label="Grouped Bars" id="datawrapper-chart-iNx66" src="https://datawrapper.dwcdn.net/iNx66/5/" scrolling="no" frameborder="0" style="width:0;min-width:100% !important;border:none;display:block;" height="746" data-external="1"></iframe>
+        </figure>
+        <p class="figcap" style="margin-top:14px;">Live interactive chart, hover any bar for exact figures. Chart: Dapo George · Source: World Bank · built with Datawrapper.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE LAST MILE BARRIER -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Analysis</span>
+      <h2>The “last mile” barrier</h2>
+    </header>
+    <div class="sec-body stack">
+      <div class="insights">
+        <div class="insight"><div class="ix">A</div><h4>The disparity</h4><p>Average costs in Sub-Saharan Africa sit at <strong>8.5%</strong>, nearly triple the <strong>3.0%</strong> UN Sustainable Development Goal.</p></div>
+        <div class="insight"><div class="ix">B</div><h4>The impact</h4><p>A <strong>30% premium</strong> over the global average, a “tax on poverty” quietly draining millions from local economies.</p></div>
+        <div class="insight"><div class="ix">C</div><h4>The design goal</h4><p>Use Service Design to bypass the “middleman” friction points that keep these regional fees artificially high.</p></div>
+        <div class="insight"><div class="ix">D</div><h4>The application</h4><p>This data is the foundation for <strong>Moyo.Exchange</strong>, turning a market gap into a concrete product thesis.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE BAND B -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">The thesis</span>
+      <h2>Data as a design brief</h2>
+    </header>
+    <div class="sec-body stack">
+      <div class="pullquote">
+        <p style="color:#fff;">an 8.5% fee isn’t a number, it’s a barrier. i design the systems that take it apart</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SECTION C, RESPONSIVE ECOSYSTEM ===================== -->
+<header class="wrap hero proj-start" id="responsive">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Section C · Responsive Ecosystem</div>
+      <h1>Dachi: one brand, every breakpoint</h1>
+      <p class="dek">A multi-platform study in adaptive visual hierarchy. The same luxury fashion brand re-flows across mobile, tablet, and desktop, each layout re-prioritising imagery, navigation, and density for its context, without ever losing the editorial tone.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Method</div><div class="v">Responsive UI</div></div>
+      <div><div class="k">Breakpoints</div><div class="v">Mobile · Tablet · Desktop</div></div>
+      <div><div class="k">Sector</div><div class="v">Luxury E-commerce</div></div>
+      <div><div class="k">Focus</div><div class="v">Adaptive Hierarchy</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- the three breakpoints -->
+<section class="sec" style="border-top:none;padding-top:8px;">
+  <div class="wrap">
+    <div class="device-row">
+      <figure class="dev mobile" style="margin:0;">
+        <div class="cap"><b>Mobile</b> · full-bleed hero<span class="px">375px</span></div>
+        <img src="images/dl-dachi-mobile.png" alt="Dachi mobile homepage, full-bleed editorial hero with hamburger nav and bottom tab bar" />
+      </figure>
+      <figure class="dev" style="margin:0;">
+        <div class="cap"><b>Tablet</b> · split menu + hero<span class="px">768px</span></div>
+        <img src="images/dl-dachi-tablet.jpg" alt="Dachi tablet layout, expanded category mega-menu beside the editorial image" />
+      </figure>
+    </div>
+
+    <figure class="full-shot" style="margin-top:30px;">
+      <div class="cap"><b>Desktop</b> · full mega-menu, search &amp; “shop by look”<span class="px">1440px</span></div>
+      <img src="images/dl-dachi-desktop.jpg" alt="Dachi desktop layout, full horizontal nav, search-led mega menu, and large shop-by-look editorial panel" onclick="openLBsrc(this.src)" />
+    </figure>
+
+    <p class="figcap" style="margin-top:16px;max-width:760px;">Notice the <b>adaptive hierarchy</b>: on mobile the image leads and navigation collapses into a hamburger + thumb-friendly tab bar; on tablet the category menu unfolds beside the hero; on desktop, search and a full mega-menu take priority while the editorial image becomes a “shop by look” call-to-action.</p>
+  </div>
+</section>
+
+<!-- WHAT CHANGED ACROSS BREAKPOINTS -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Adaptive decisions</span>
+      <h2>What re-prioritises at each size</h2>
+    </header>
+    <div class="sec-body stack">
+      <div class="insights">
+        <div class="insight"><div class="ix">A</div><h4>Navigation</h4><p>Hamburger + bottom tab bar on mobile → unfolding category menu on tablet → persistent horizontal mega-menu on desktop.</p></div>
+        <div class="insight"><div class="ix">B</div><h4>Imagery</h4><p>The editorial hero is the whole screen on mobile, a paired panel on tablet, and a “shop by look” CTA on desktop.</p></div>
+        <div class="insight"><div class="ix">C</div><h4>Density &amp; search</h4><p>Search is tucked away on mobile and promoted to a primary action as screen real estate grows.</p></div>
+        <div class="insight"><div class="ix">D</div><h4>Consistent tone</h4><p>Thin, wide-tracked wordmark and generous whitespace keep the luxury editorial feel intact at every breakpoint.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE SCREEN MAP -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">The screen map</span>
+      <h2>Designing the full flow, not one screen</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Behind the three breakpoints sits a complete mobile screen system, every category, look, and product state mapped as a connected flow.</p>
+      <figure class="full-shot" style="margin:0;">
+        <div class="cap"><b>Mobile screen map</b> · latest arrivals → men’s suits &amp; jackets → dresses → tops &amp; bottoms<span class="px">14 screens</span></div>
+        <img src="images/dl-dachi-flow.jpg" alt="Grid of 14 Dachi mobile screens mapping the full navigation flow across categories" onclick="openLBsrc(this.src)" />
+      </figure>
+      <p class="figcap" style="margin-top:2px;">Click either large image to inspect it full-screen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE BAND C -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">The takeaway</span>
+      <h2>Responsive isn’t resizing, it’s re-deciding</h2>
+    </header>
+    <div class="sec-body stack">
+      <div class="pullquote">
+        <p style="color:#fff;">every breakpoint is a new set of priorities, same brand, re-decided for the context</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <div class="big">the design lab.</div>
+    <div class="credit">Service Design · Deliveroo Blueprint · Dapo George</div>
+  </div>
+</footer>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLB()">
+  <span class="x">esc · click to close</span>
+  <img src="images/dl-deliveroo-blueprint.jpg" alt="Deliveroo service blueprint, full screen" />
+</div>
+
+<script>
+  const prog=document.getElementById('progress');
+  function onScroll(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;prog.style.width=(max>0?(h.scrollTop/max*100):0)+'%';}
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  function openLB(){document.getElementById('lightbox').classList.add('on');}
+  function openLBsrc(src){var lb=document.getElementById('lightbox');lb.querySelector('img').src=src;lb.classList.add('on');}
+  function closeLB(){document.getElementById('lightbox').classList.remove('on');}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();});
+
+  /* Datawrapper responsive height */
+  window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}});
+</script>
+<script>
+  (function(){
+    var last=0;
+    function postH(){var hh=Math.ceil(document.body.getBoundingClientRect().height);if(hh&&Math.abs(hh-last)>1){last=hh;parent.postMessage({type:'cs-embed-height',height:hh},'*');}}
+    function deb(){clearTimeout(window.__csrt);window.__csrt=setTimeout(postH,150);}
+    window.addEventListener('load',postH);window.addEventListener('resize',deb);
+    if(window.ResizeObserver){new ResizeObserver(deb).observe(document.body);}
+    [300,800,1500,2500].forEach(function(t){setTimeout(postH,t);});
+  })();
+</script>
+</body>
+</html>

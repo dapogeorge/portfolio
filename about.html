@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About &amp; Contact — Dapo George, Product &amp; UX Designer</title>
+<meta name="description" content="Dapo George is a Product &amp; UX/UI Designer with an MSc in User Experience Engineering and 6+ years across fintech, enterprise CRM and AI. See experience and get in touch." />
+<meta name="author" content="Dapo George" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f2530" />
+<link rel="canonical" href="https://dapogeorge.com/about.html" />
+<meta property="og:type" content="profile" />
+<meta property="og:site_name" content="Dapo George — Portfolio" />
+<meta property="og:title" content="About &amp; Contact — Dapo George, Product &amp; UX Designer" />
+<meta property="og:description" content="Dapo George is a Product &amp; UX/UI Designer with an MSc in User Experience Engineering and 6+ years across fintech, enterprise CRM and AI. See experience and get in touch." />
+<meta property="og:url" content="https://dapogeorge.com/about.html" />
+<meta property="og:image" content="https://dapogeorge.com/images/dapo-george.jpg" />
+<meta property="og:image:alt" content="About &amp; Contact — Dapo George, Product &amp; UX Designer" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About &amp; Contact — Dapo George, Product &amp; UX Designer" />
+<meta name="twitter:description" content="Dapo George is a Product &amp; UX/UI Designer with an MSc in User Experience Engineering and 6+ years across fintech, enterprise CRM and AI. See experience and get in touch." />
+<meta name="twitter:image" content="https://dapogeorge.com/images/dapo-george.jpg" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  .about-hero{padding:88px 0 30px;}
+  .about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:56px;align-items:start;}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:34px;}}
+  .about-body p{font-size:17px;line-height:1.72;color:var(--ink-2);max-width:48ch;margin:18px 0 0;}
+  .about-body p:first-child{margin-top:24px;}
+  .about-body strong{color:var(--ink);font-weight:600;}
+
+  .photo{aspect-ratio:4/5;max-width:180px;border-radius:16px;background:var(--surface);
+    border:1px solid var(--hair);box-shadow:0 30px 60px -28px rgba(12,27,51,.45);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+  .photo img{width:100%;height:100%;object-fit:cover;border-radius:15px;filter:grayscale(1) contrast(1.02);}
+  .photo .ph-label{font-family:var(--mono);font-size:12px;color:var(--accent);padding:14px;line-height:1.5;}
+
+  .editnote{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:16px;letter-spacing:.2px;}
+  .skills-wrap{margin-top:2px;}
+
+  /* timeline */
+  .timeline{display:flex;flex-direction:column;border-top:1px solid var(--hair);max-width:var(--measure);}
+  .tl-row{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--hair);}
+  .tl-row .when{font-family:var(--mono);font-size:12px;letter-spacing:.5px;color:var(--ink-3);padding-top:3px;}
+  .tl-row .role{font-family:var(--sans);font-weight:600;font-size:18px;color:var(--ink);margin:0;}
+  .tl-row .org{font-family:var(--mono);font-size:12.5px;color:var(--accent);margin:4px 0 9px;letter-spacing:.2px;}
+  .tl-row .what{font-size:15px;line-height:1.55;color:var(--ink-2);margin:0;}
+  @media(max-width:560px){.tl-row{grid-template-columns:1fr;gap:6px;}}
+
+  /* edu list */
+  .edu{display:flex;flex-direction:column;gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:12px;overflow:hidden;max-width:var(--measure);}
+  .edu .item{background:var(--surface);padding:18px 22px;display:flex;justify-content:space-between;gap:18px;align-items:baseline;flex-wrap:wrap;}
+  .edu .item .t{font-weight:600;font-size:15.5px;color:var(--ink);}
+  .edu .item .m{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.3px;}
+  .edu .item.cert .t::before{content:"✓ ";color:var(--accent);font-weight:700;}
+
+  /* contact */
+  .contact-list{display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.16);max-width:var(--measure);}
+  .contact-row{display:flex;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.16);}
+  .contact-row .lbl{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#7fb0ff;width:120px;flex:none;}
+  .contact-row a,.contact-row .val{font-family:var(--sans);font-size:18px;color:#fff;text-decoration:none;font-weight:500;}
+  .contact-row a:hover{color:#7fb0ff;}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dapo George",
+  "url": "https://dapogeorge.com/",
+  "image": "https://dapogeorge.com/images/dapo-george.jpg",
+  "jobTitle": "Product & UX Designer",
+  "description": "Product & UX/UI Designer with an MSc in User Experience Engineering, working across fintech, enterprise CRM and AI.",
+  "email": "mailto:dapogeorge@yahoo.com",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "MSc User Experience Engineering"
+  },
+  "knowsAbout": [
+    "UX Design",
+    "UI Design",
+    "Service Design",
+    "Interaction Design",
+    "Salesforce Lightning",
+    "Agentforce",
+    "Prompt Engineering",
+    "Information Architecture",
+    "Fintech UX",
+    "Design Systems"
+  ],
+  "sameAs": [
+    "https://linkedin.com/in/dapogeorge"
+  ]
+}
+</script>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#4b56d6"/>
+    <circle cx="50" cy="40" r="14" fill="#fff"/>
+    <path d="M26 78 a24 24 0 0 1 48 0 z" fill="#fff" opacity="0.9"/>
+  </svg>
+</template>
+<div id="progress"></div>
+<a class="site-logo" href="index.html" aria-label="Dapo George — home"><img src="images/logo-dg.png" alt="Dapo George — DG monogram" /></a>
+
+<nav class="nav">
+  <div class="in">
+    <button class="navtoggle" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">Menu</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <div class="navitem" onclick="if(window.matchMedia('(max-width:760px)').matches)this.classList.toggle('open')">
+        <span class="droptrigger">Work <span class="caret">&#9662;</span></span>
+        <div class="dropmenu">
+          <a href="salesforce.html">Salesforce UI/UX Strategy<span>Enterprise · Dynamic Forms</span></a>
+          <a href="ai-agentforce.html">AI &amp; Agentforce<span>Conversational · Multilingual</span></a>
+          <a href="prompt-engineering.html">Prompt Engineering<span>Generative UX · Flows</span></a>
+          <a href="design-lab.html">The Design Lab<span>Service · Data · Responsive</span></a>
+          <a href="moyo/index.html">Moyo Exchange<span>Fintech · Service Design</span></a>
+        </div>
+      </div>
+      <a href="process.html">Process</a>
+      <a href="about.html" class="active">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO / ABOUT -->
+<header class="wrap about-hero" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="eyebrow">About · Dapo George</div>
+      <h1 style="font-family:var(--mono);font-weight:600;font-size:clamp(27px,3.1vw,40px);line-height:1.24;letter-spacing:-.015em;text-transform:lowercase;margin:20px 0 0;max-width:18ch;">Good at being uncomfortable</h1>
+      <div class="about-body">
+        <p>I’m a <strong>Product &amp; UX Designer</strong> with a Master’s in UX Engineering and <strong>6+ years</strong> designing complex digital systems, from regulated cross-border fintech to enterprise CRM and AI.</p>
+        <p>I work at the micro level: interaction states, transition logic, edge cases, and the precise mechanics of how people keep <strong>agency over systems that behave non-deterministically</strong>. Lately that means designing human-in-the-loop AI workflows on Salesforce, defining how users initiate, supervise, correct, and complete AI-assisted tasks.</p>
+        <p>I’m comfortable working without a playbook, defining new interaction models from first principles in fast-moving, high-ambiguity environments.</p>
+      </div>
+    </div>
+    <div class="photo" id="photo-slot">
+      <img src="images/dapo-george.jpg" alt="Dapo George" />
+    </div>
+  </div>
+</header>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Experience</span>
+      <h2>Where I’ve designed</h2>
+    </header>
+    <div class="sec-body stack">
+      <div class="timeline">
+        <div class="tl-row">
+          <div class="when">Nov 2024, Present</div>
+          <div>
+            <p class="role">UX/UI Designer, AI Interaction Design</p>
+            <p class="org">Salesforce · Enterprise CRM &amp; AI</p>
+            <p class="what">Designing AI co-pilot experiences with Agentforce, interaction states across the full behavioural spectrum, human-in-the-loop controls, and SLDS component systems at enterprise scale.</p>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="when">Aug 2021, Nov 2024</div>
+          <div>
+            <p class="role">Lead Product Designer</p>
+            <p class="org">Sendit.Money · Global FinTech Startup</p>
+            <p class="what">Founding designer on a regulated cross-border payments platform. Built the design function from zero, owning strategy, UX, UI, research, and the design system across the full payment lifecycle.</p>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="when">2020, 2021</div>
+          <div>
+            <p class="role">Product / Service Designer</p>
+            <p class="org">Banking · NHS 111 · Public Sector</p>
+            <p class="what">Evidence-based service design in high-ambiguity, regulated environments, WCAG-compliant healthcare journeys and modernising legacy banking design systems, grounded in GDS methodology.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">What I do</span>
+      <h2>Skills &amp; focus areas</h2>
+    </header>
+    <div class="sec-body stack">
+      <div class="chips skills-wrap">
+        <span class="chip">AI Interaction Design</span>
+        <span class="chip">Interaction Design</span>
+        <span class="chip">Product Strategy</span>
+        <span class="chip">Service Blueprinting</span>
+        <span class="chip">Journey Mapping</span>
+        <span class="chip">Design Systems</span>
+        <span class="chip">Salesforce SLDS</span>
+        <span class="chip">Prompt Engineering</span>
+        <span class="chip">UX Research</span>
+        <span class="chip">Usability Testing</span>
+        <span class="chip">Accessibility (WCAG)</span>
+        <span class="chip">Figma <b>· expert</b></span>
+        <span class="chip">HTML / CSS / JS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Education &amp; certifications</span>
+      <h2>Credentials</h2>
+    </header>
+    <div class="sec-body stack">
+      <div class="edu">
+        <div class="item"><span class="t">MSc User Experience Engineering</span><span class="m">Goldsmiths, University of London · 2021–2023</span></div>
+        <div class="item"><span class="t">BSc Computer Information Technology</span><span class="m">University of Hertfordshire, UK</span></div>
+        <div class="item"><span class="t">Professional Diploma in UX Design</span><span class="m">UX Design Institute</span></div>
+        <div class="item cert"><span class="t">Salesforce Certified Platform UX Designer</span><span class="m">2025</span></div>
+        <div class="item cert"><span class="t">Salesforce Agent-Blazer Champion, AI Task Automation</span><span class="m">2025</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Get in touch</span>
+      <h2>Let’s talk</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Open to senior product, interaction, and AI-UX work. The fastest ways to reach me:</p>
+      <div class="contact-list">
+        <div class="contact-row">
+          <span class="lbl">Email</span>
+          <a href="mailto:dapogeorge@yahoo.com">dapogeorge@yahoo.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="lbl">LinkedIn</span>
+          <a href="https://linkedin.com/in/dapogeorge" target="_top" rel="noopener">linkedin.com/in/dapogeorge</a>
+        </div>
+        <div class="contact-row">
+          <span class="lbl">Website</span>
+          <a href="https://dapogeorge.com" target="_top" rel="noopener">dapogeorge.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="lbl">Based in</span>
+          <span class="val">London, UK</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <div class="big">thanks for stopping by.</div>
+    <div class="credit">About &amp; Contact · Dapo George</div>
+  </div>
+</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  function onScroll(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;prog.style.width=(max>0?(h.scrollTop/max*100):0)+'%';}
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+<script>
+  (function(){
+    var last=0;
+    function postH(){var hh=Math.ceil(document.body.getBoundingClientRect().height);if(hh&&Math.abs(hh-last)>1){last=hh;parent.postMessage({type:'cs-embed-height',height:hh},'*');}}
+    function deb(){clearTimeout(window.__csrt);window.__csrt=setTimeout(postH,150);}
+    window.addEventListener('load',postH);window.addEventListener('resize',deb);
+    if(window.ResizeObserver){new ResizeObserver(deb).observe(document.body);}
+    [300,800,1500,2500].forEach(function(t){setTimeout(postH,t);});
+  })();
+</script>
+</body>
+</html>

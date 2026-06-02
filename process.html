@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Design Process — UX/UI &amp; Research-Led Service Design | Dapo George</title>
+<meta name="description" content="How I work across two scales: an interface-level UX/UI process built around cognitive load, and a research-led service-design process from blueprint to measurable impact." />
+<meta name="author" content="Dapo George" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f2530" />
+<link rel="canonical" href="https://dapogeorge.com/process.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dapo George — Portfolio" />
+<meta property="og:title" content="Design Process — UX/UI &amp; Research-Led Service Design | Dapo George" />
+<meta property="og:description" content="How I work across two scales: an interface-level UX/UI process built around cognitive load, and a research-led service-design process from blueprint to measurable impact." />
+<meta property="og:url" content="https://dapogeorge.com/process.html" />
+<meta property="og:image" content="https://dapogeorge.com/images/dapo-george.jpg" />
+<meta property="og:image:alt" content="Design Process — UX/UI &amp; Research-Led Service Design | Dapo George" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Design Process — UX/UI &amp; Research-Led Service Design | Dapo George" />
+<meta name="twitter:description" content="How I work across two scales: an interface-level UX/UI process built around cognitive load, and a research-led service-design process from blueprint to measurable impact." />
+<meta name="twitter:image" content="https://dapogeorge.com/images/dapo-george.jpg" />
+<link rel="stylesheet" href="site.css" />
+<style>
+  /* page-specific */
+  .phase-points{display:flex;flex-direction:column;gap:10px;margin-top:18px;}
+  .phase-points .pt{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;color:var(--ink-2);line-height:1.5;}
+  .phase-points .pt::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-top:8px;}
+  .editnote{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:14px;letter-spacing:.2px;}
+  /* lightbox */
+  .lightbox{position:fixed;inset:0;background:rgba(8,15,28,.92);z-index:200;display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;}
+  .lightbox.on{display:flex;}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.5);}
+  .lightbox .x{position:absolute;top:20px;right:26px;font-family:var(--mono);font-size:13px;color:#fff;opacity:.8;}
+</style>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#4b56d6"/>
+    <circle cx="30" cy="32" r="5" fill="#fff"/><rect x="42" y="29" width="30" height="6" rx="3" fill="#fff" opacity="0.85"/>
+    <circle cx="30" cy="50" r="5" fill="#fff"/><rect x="42" y="47" width="24" height="6" rx="3" fill="#fff" opacity="0.6"/>
+    <circle cx="30" cy="68" r="5" fill="#fff"/><rect x="42" y="65" width="28" height="6" rx="3" fill="#fff" opacity="0.6"/>
+  </svg>
+</template>
+<div id="progress"></div>
+<a class="site-logo" href="index.html" aria-label="Dapo George — home"><img src="images/logo-dg.png" alt="Dapo George — DG monogram" /></a>
+
+<nav class="nav">
+  <div class="in">
+    <button class="navtoggle" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">Menu</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <div class="navitem" onclick="if(window.matchMedia('(max-width:760px)').matches)this.classList.toggle('open')">
+        <span class="droptrigger">Work <span class="caret">&#9662;</span></span>
+        <div class="dropmenu">
+          <a href="salesforce.html">Salesforce UI/UX Strategy<span>Enterprise · Dynamic Forms</span></a>
+          <a href="ai-agentforce.html">AI &amp; Agentforce<span>Conversational · Multilingual</span></a>
+          <a href="prompt-engineering.html">Prompt Engineering<span>Generative UX · Flows</span></a>
+          <a href="design-lab.html">The Design Lab<span>Service · Data · Responsive</span></a>
+          <a href="moyo/index.html">Moyo Exchange<span>Fintech · Service Design</span></a>
+        </div>
+      </div>
+      <a href="process.html" class="active">Process</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="wrap hero" id="approach">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">How I work</div>
+      <h1>Two lenses: the screen and the system</h1>
+      <p class="dek">I move between two scales of design. Up close, a <strong>UX/UI process</strong> built around cognitive load, separating what a user must do from what they might reference. Pulled back, a <strong>research-led service design process</strong> that maps the whole ecosystem of people and systems behind a single action.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Disciplines</div><div class="v">UX/UI · Service Design</div></div>
+      <div><div class="k">Methods</div><div class="v">Research · Blueprinting</div></div>
+      <div><div class="k">Focus</div><div class="v">Interaction · IA · Systems</div></div>
+      <div><div class="k">Devices</div><div class="v">Desktop + Mobile</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== LENS 01 DIVIDER ===================== -->
+<section class="wrap" style="padding:64px 0 0;border-top:1px solid var(--hair);">
+  <div class="eyebrow">Process 01 · UX / UI</div>
+  <h2 style="font-family:var(--mono);font-weight:600;font-size:clamp(23px,2.7vw,31px);line-height:1.2;letter-spacing:-.015em;text-transform:lowercase;margin:12px 0 0;">the interface process</h2>
+  <p class="dek" style="max-width:60ch;margin-top:14px;font-size:17px;">How I take a single, dense screen and make the right thing obvious, from audit to shipped configuration.</p>
+</section>
+
+<!-- 01 DISCOVER -->
+<section id="process" class="sec" style="border-top:none;padding-top:40px;">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">Discover</span>
+      <h2>Audit the interface &amp; the friction</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I start by mapping what users actually need against what the interface puts in front of them, and finding where the gap lives.</p>
+      <div class="phase-points">
+        <div class="pt">Audit the existing record page, field by field, for relevance and redundancy.</div>
+        <div class="pt">Locate the friction, buried data, “toggle tax,” field fatigue, endless scroll.</div>
+        <div class="pt">Understand the persona: what decision are they here to make?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 DEFINE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">Define</span>
+      <h2>Separate action from reference</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I translate findings into a clear priority: immediate action first, historical detail second, deep-dive data one click away.</p>
+      <div class="phase-points">
+        <div class="pt">Decide what earns a place at the top of the page, and what doesn’t.</div>
+        <div class="pt">Curate a small set of “power fields” and the critical actions around them.</div>
+        <div class="pt">Frame the goal as a question: “what do I need to do next?”</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 ARCHITECT -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">Architect</span>
+      <h2>Shape the information architecture</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I structure the page around how the eye actually moves and how attention is best spent.</p>
+      <div class="phase-points">
+        <div class="pt">Place critical data inside the F-pattern reading zone.</div>
+        <div class="pt">Use progressive disclosure, tabs and sections, to hide low-frequency detail.</div>
+        <div class="pt">Choose the right template (e.g. Header &amp; Right Sidebar) for the workflow.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 BUILD -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">Build</span>
+      <h2>Configure it for real: clicks, not code</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Design isn’t just visuals; it’s configuration. I build the solution natively in the platform so it ships.</p>
+      <div class="phase-points">
+        <div class="pt">Assemble pages in the Salesforce Lightning App Builder.</div>
+        <div class="pt">Use Dynamic Forms and a Dynamic Highlights Panel for modular, high-performance layouts.</div>
+        <div class="pt">Keep it maintainable, declarative configuration over custom code.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 VALIDATE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">05</span>
+      <span class="kicker">Validate</span>
+      <h2>Pressure-test &amp; prune</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I confirm the design holds up across devices and genuinely lowers the effort of the task.</p>
+      <div class="phase-points">
+        <div class="pt">Check desktop ↔ mobile parity, one single source of truth.</div>
+        <div class="pt">Remove obsolete or redundant fields uncovered in the audit.</div>
+        <div class="pt">Measure the win: less toggling, lower time-to-task, cleaner CRM.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LENS 02 DIVIDER ===================== -->
+<section class="wrap proj-start" id="service-design" style="padding-top:74px;">
+  <div class="eyebrow">Process 02 · Service Design</div>
+  <h2 style="font-family:var(--mono);font-weight:600;font-size:clamp(23px,2.7vw,31px);line-height:1.2;letter-spacing:-.015em;text-transform:lowercase;margin:12px 0 0;">research-led service design</h2>
+  <p class="dek" style="max-width:62ch;margin-top:14px;font-size:17px;">When the problem is bigger than one screen, I zoom out. This is how I research the people in a system, map how a single action ripples across them, and design the invisible chain that makes the experience work, from the Deliveroo blueprint to the remittance research behind Moyo.Exchange.</p>
+</section>
+
+<!-- SD 01 RESEARCH -->
+<section class="sec" style="border-top:none;padding-top:40px;">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">Research &amp; immersion</span>
+      <h2>Start with evidence, not assumptions</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Every service starts with research. I combine qualitative insight with hard secondary data to understand every actor in the system before drawing a single screen.</p>
+      <div class="phase-points">
+        <div class="pt">Identify and interview the stakeholders, customers, riders, restaurants, internal teams.</div>
+        <div class="pt">Synthesise pain points and motivations across the whole journey, not just one touchpoint.</div>
+        <div class="pt">Ground decisions in data, e.g. World Bank remittance costs that framed Moyo.Exchange.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SD 02 MAP -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">Map the ecosystem</span>
+      <h2>Blueprint the multi-stakeholder lifecycle</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I visualise how one simple action triggers a complex chain of backstage events across people and systems.</p>
+      <div class="phase-points">
+        <div class="pt">Build a service blueprint spanning the end-to-end, multi-stakeholder lifecycle.</div>
+        <div class="pt">Capture front-stage actions, back-stage logistics and the support processes beneath them.</div>
+        <div class="pt">Identify operational blockers and where knowledge needs to flow between teams.</div>
+      </div>
+      <figure class="bp-figure" style="margin:18px 0 0;">
+        <div class="browser">
+          <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Service Blueprint · Deliveroo · Front Stage → Line of Visibility → Back Stage</span></div>
+          <img src="images/dl-deliveroo-blueprint.jpg" alt="End-to-end Deliveroo service blueprint mapping customer, app, rider and restaurant actions across the line of visibility" onclick="openLB()" style="cursor:zoom-in;" />
+        </div>
+        <figcaption class="figcap">A real example, my Deliveroo service blueprint. Click to view it full-screen.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- SD 03 LINE OF VISIBILITY -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">Draw the line of visibility</span>
+      <h2>Separate what’s seen from what powers it</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">The hinge of any service: what the user sees, versus the human and third-party work that makes it happen.</p>
+      <div class="phase-points">
+        <div class="pt">Split automated app responses (front stage) from human actions and logistics (back stage).</div>
+        <div class="pt">Pinpoint where the app must “bridge”, e.g. a rider’s GPS becoming an “arriving in minutes” notice.</div>
+        <div class="pt">Surface the invisible infrastructure: payment gateways, recommendation and distance algorithms.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SD 04 ORCHESTRATE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">Orchestrate touchpoints</span>
+      <h2>Synchronise automation and human action</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I design the moments where automated systems and human actions must stay in lock-step.</p>
+      <div class="phase-points">
+        <div class="pt">Align triggers, one payment success can assign a rider and alert the kitchen at once.</div>
+        <div class="pt">Design the hand-offs between actors so nothing drops between stages.</div>
+        <div class="pt">Translate back-stage events into clear, timely front-stage feedback for the user.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SD 05 MEASURE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">05</span>
+      <span class="kicker">Measure service impact</span>
+      <h2>Quantify the friction, then design it out</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">A blueprint earns its keep when it reveals friction you can measure, and remove.</p>
+      <div class="phase-points">
+        <div class="pt">Locate quantified friction points, like a 15% gap in the rider-to-kitchen hand-off.</div>
+        <div class="pt">Improve knowledge flow across teams and dissolve operational blockers.</div>
+        <div class="pt">Validate that the redesigned service lowers effort across the whole journey.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools" class="sec proj-start" style="padding-top:74px;">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Tools &amp; methods</span>
+      <h2>What I build with</h2>
+    </header>
+    <div class="sec-body stack">
+      <div class="chips">
+        <span class="chip">User Research</span>
+        <span class="chip">Stakeholder Mapping</span>
+        <span class="chip">Service Blueprinting</span>
+        <span class="chip">Journey Mapping</span>
+        <span class="chip">Salesforce Lightning</span>
+        <span class="chip">SLDS</span>
+        <span class="chip">Lightning App Builder</span>
+        <span class="chip">Dynamic Forms</span>
+        <span class="chip">Figma</span>
+        <span class="chip">Datawrapper</span>
+        <span class="chip">Prototyping</span>
+        <span class="chip">Information Architecture</span>
+        <span class="chip">Responsive Design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES (band) -->
+<section id="principles" class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Principles</span>
+      <h2>What every screen has to earn</h2>
+    </header>
+    <div class="sec-body stack">
+      <div class="principles">
+        <div class="principle"><div class="ix">A</div><h4>Cognitive load reduction</h4><p>Fewer decisions per screen. Surface the relevant, defer the rest.</p></div>
+        <div class="principle"><div class="ix">B</div><h4>Action-first IA</h4><p>“What do I do next?” leads “what are the details?”</p></div>
+        <div class="principle"><div class="ix">C</div><h4>Progressive disclosure</h4><p>Low-frequency data stays one click away, never in the way.</p></div>
+        <div class="principle"><div class="ix">D</div><h4>Mobile parity</h4><p>One responsive system, the same truth on every device.</p></div>
+        <div class="principle"><div class="ix">E</div><h4>Whole-system thinking</h4><p>Design the back-stage chain, not just the screen the user touches.</p></div>
+        <div class="principle"><div class="ix">F</div><h4>Evidence over assumption</h4><p>Research and data set the brief before a pixel is drawn.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <div class="big">design as decision-making.</div>
+    <div class="credit">UX / UI Process · Dapo George</div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLB()">
+  <span class="x">esc · click to close</span>
+  <img src="images/dl-deliveroo-blueprint.jpg" alt="Deliveroo service blueprint, full screen" />
+</div>
+
+<script>
+  const prog=document.getElementById('progress');
+  function onScroll(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;prog.style.width=(max>0?(h.scrollTop/max*100):0)+'%';}
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  function openLB(){document.getElementById('lightbox').classList.add('on');}
+  function closeLB(){document.getElementById('lightbox').classList.remove('on');}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLB();});
+</script>
+<script>
+  (function(){
+    var last=0;
+    function postH(){var hh=Math.ceil(document.body.getBoundingClientRect().height);if(hh&&Math.abs(hh-last)>1){last=hh;parent.postMessage({type:'cs-embed-height',height:hh},'*');}}
+    function deb(){clearTimeout(window.__csrt);window.__csrt=setTimeout(postH,150);}
+    window.addEventListener('load',postH);window.addEventListener('resize',deb);
+    if(window.ResizeObserver){new ResizeObserver(deb).observe(document.body);}
+    [300,800,1500,2500].forEach(function(t){setTimeout(postH,t);});
+  })();
+</script>
+</body>
+</html>
