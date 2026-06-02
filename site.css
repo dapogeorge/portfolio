@@ -18,8 +18,8 @@
   --band-2:#0d2148;
   --sans:'IBM Plex Sans', system-ui, sans-serif;
   --mono:'IBM Plex Mono', monospace;
-  --wrap:1080px;
-  --measure:660px;
+  --wrap:1240px;
+  --measure:680px;
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -240,21 +240,21 @@ h1,h2,h3,h4,.lead,.dek,.intro{overflow-wrap:break-word;}
 
 /* tablet */
 @media(max-width:1024px){
-  :root{--wrap:920px;}
+  :root{--wrap:940px;}
 }
 
 /* small tablet / large phone */
 @media(max-width:640px){
   section.sec{padding:52px 0;}
-  .hero{padding:66px 0 30px;}
-  .home-hero{padding:48px 0 40px;}
+  .hero{padding:84px 0 30px;}
+  .home-hero{padding:84px 0 40px;}
   .home-hero .intro{font-size:17px;}
   .meta{grid-template-columns:1fr 1fr;gap:18px 26px;}
 }
 
 /* phone */
 @media(max-width:480px){
-  .wrap{padding:0 18px;}
+  .wrap{padding-left:18px;padding-right:18px;}
   section.sec{padding:42px 0;}
   .work-card .body{padding:20px 20px 22px;}
   .cta-row{flex-direction:column;align-items:stretch;}

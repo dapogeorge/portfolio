@@ -199,20 +199,61 @@ function build(){
   var WORK=[["Salesforce UX","../salesforce.html"],["AI & Agentforce","../ai-agentforce.html"],["Prompt Engineering","../prompt-engineering.html"],["The Design Lab","../design-lab.html"],["Moyo Exchange","index.html"]];
   var CHAP=[["Overview","index.html"],["Prototype","moyo-prototype.html"],["Hi-Fi screens","moyo-hifi-screens.html"],["Wireframes","moyo-wireframes.html"],["Blueprint","moyo-blueprint.html"],["Accessibility","moyo-accessibility.html"],["Security","moyo-security.html"]];
   var curC=null; for(var i=0;i<CHAP.length;i++){if(CHAP[i][1]===here)curC=CHAP[i];}
+  if(!document.getElementById("__pf_nav_css")){
+    var st=document.createElement("style"); st.id="__pf_nav_css";
+    st.textContent="#__pf_nav{position:fixed;top:12px;right:12px;z-index:2147483647;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}"
+    +"#__pf_nav .pfbar{display:flex;align-items:center;gap:3px;padding:6px 8px;background:rgba(15,37,48,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.3);max-width:calc(100vw - 24px);}"
+    +"#__pf_nav a,#__pf_nav button{color:#cfe3e0;font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.2px;text-decoration:none;padding:7px 10px;border-radius:999px;white-space:nowrap;background:transparent;border:0;cursor:pointer;}"
+    +"#__pf_nav a:hover,#__pf_nav button:hover{color:#fff;background:rgba(255,255,255,.08);}"
+    +"#__pf_nav a.brand{color:#fff;}"
+    +"#__pf_nav .cur{color:#7fd6c2;background:rgba(127,214,194,.14);}"
+    +"#__pf_nav .dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.3);margin:0 3px;padding:0;}"
+    +"#__pf_nav .pf-wrap{position:relative;display:inline-flex;}"
+    +"#__pf_nav .pf-menu{display:none;position:absolute;top:42px;right:0;min-width:212px;max-height:78vh;overflow:auto;background:#0f2530;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:6px;box-shadow:0 16px 40px rgba(0,0,0,.45);flex-direction:column;}"
+    +"#__pf_nav .pf-menu.open{display:flex;}"
+    +"#__pf_nav .pf-menu a{display:block;padding:9px 11px;border-radius:8px;}"
+    +"#__pf_nav .pf-lbl{color:#7c93a0;font-size:10px;letter-spacing:.6px;text-transform:uppercase;padding:10px 11px 3px;}"
+    +"#__pf_nav .pf-burger{display:none;}"
+    +"@media(max-width:720px){#__pf_nav .pf-inline{display:none!important;}#__pf_nav .pf-burger{display:inline-flex!important;}}";
+    document.head.appendChild(st);
+  }
+  function mkA(t,h,cur){var a=document.createElement("a");a.textContent=t;a.href=h;if(cur)a.className="cur";return a;}
+  function closeAll(){var m=document.querySelectorAll("#__pf_nav .pf-menu");for(var k=0;k<m.length;k++)m[k].classList.remove("open");}
+  function drop(label,items,trigCur,actFn){
+    var wrap=document.createElement("span");wrap.className="pf-wrap";
+    var trg=document.createElement("a");trg.href="#";trg.textContent=label;if(trigCur)trg.className="cur";
+    var menu=document.createElement("div");menu.className="pf-menu";
+    trg.onclick=function(e){e.preventDefault();var op=menu.classList.contains("open");closeAll();if(!op)menu.classList.add("open");};
+    items.forEach(function(it){menu.appendChild(mkA(it[0],it[1],actFn(it)));});
+    wrap.appendChild(trg);wrap.appendChild(menu);return wrap;
+  }
   var bar=document.createElement("nav"); bar.id="__pf_nav";
-  bar.style.cssText="position:fixed;top:12px;right:12px;z-index:2147483647;display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end;gap:3px;padding:6px 8px;background:rgba(15,37,48,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.3);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;max-width:calc(100vw - 24px);";
-  function mk(t,h,cur){var a=document.createElement("a");a.textContent=t;a.href=h;a.style.cssText="color:"+(cur?"#7fd6c2":"#cfe3e0")+";font-size:12px;letter-spacing:.2px;text-decoration:none;padding:6px 10px;border-radius:999px;white-space:nowrap;background:"+(cur?"rgba(127,214,194,.14)":"transparent")+";";a.onmouseover=function(){if(!cur){a.style.color="#fff";a.style.background="rgba(255,255,255,.08)";}};a.onmouseout=function(){if(!cur){a.style.color="#cfe3e0";a.style.background="transparent";}};return a;}
-  function drop(label,items,trigCur,actFn){var wrap=document.createElement("span");wrap.style.cssText="position:relative;display:inline-flex;";var trg=mk(label,"#",trigCur);var menu=document.createElement("div");menu.className="__pf_menu";menu.style.cssText="display:none;position:absolute;top:38px;right:0;min-width:200px;background:#0f2530;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:6px;box-shadow:0 16px 40px rgba(0,0,0,.45);";trg.onclick=function(e){e.preventDefault();var open=menu.style.display==="block";var all=document.querySelectorAll(".__pf_menu");for(var k=0;k<all.length;k++)all[k].style.display="none";menu.style.display=open?"none":"block";};items.forEach(function(it){var cur=actFn(it);var a=document.createElement("a");a.textContent=it[0];a.href=it[1];a.style.cssText="display:block;color:"+(cur?"#7fd6c2":"#cfe3e0")+";font-size:12px;text-decoration:none;padding:9px 11px;border-radius:8px;white-space:nowrap;background:"+(cur?"rgba(127,214,194,.12)":"transparent")+";";a.onmouseover=function(){if(!cur)a.style.background="rgba(255,255,255,.08)";};a.onmouseout=function(){a.style.background=cur?"rgba(127,214,194,.12)":"transparent";};menu.appendChild(a);});wrap.appendChild(trg);wrap.appendChild(menu);return wrap;}
-  var brand=mk("Dapo George","../index.html",false);brand.style.fontWeight="600";brand.style.color="#fff";bar.appendChild(brand);
-  var dot=document.createElement("span");dot.style.cssText="width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.3);margin:0 2px;";bar.appendChild(dot);
-  bar.appendChild(mk("Home","../index.html",false));
-  bar.appendChild(drop("Work \u25BE",WORK,false,function(it){return it[0]==="Moyo Exchange";}));
-  bar.appendChild(drop((curC?curC[0]:"Case study")+" \u25BE",CHAP,true,function(it){return it[1]===here;}));
-  bar.appendChild(mk("Process","../process.html",false));
-  bar.appendChild(mk("About","../about.html",false));
+  var row=document.createElement("div"); row.className="pfbar"; bar.appendChild(row);
+  var brand=mkA("Dapo George","../index.html",false);brand.className="brand";row.appendChild(brand);
+  var inline=document.createElement("span");inline.className="pf-inline";inline.style.cssText="display:flex;align-items:center;gap:3px;";
+  var dot=document.createElement("span");dot.className="dot";inline.appendChild(dot);
+  inline.appendChild(mkA("Home","../index.html",false));
+  inline.appendChild(drop("Work \u25BE",WORK,false,function(it){return it[0]==="Moyo Exchange";}));
+  inline.appendChild(drop((curC?curC[0]:"Case study")+" \u25BE",CHAP,true,function(it){return it[1]===here;}));
+  inline.appendChild(mkA("Process","../process.html",false));
+  inline.appendChild(mkA("About","../about.html",false));
+  row.appendChild(inline);
+  var bwrap=document.createElement("span");bwrap.className="pf-burger pf-wrap";
+  var btn=document.createElement("button");btn.textContent="\u2630 Menu";
+  var sheet=document.createElement("div");sheet.className="pf-menu";
+  sheet.appendChild(mkA("Home","../index.html",false));
+  var l1=document.createElement("div");l1.className="pf-lbl";l1.textContent="Work";sheet.appendChild(l1);
+  WORK.forEach(function(it){sheet.appendChild(mkA(it[0],it[1],it[0]==="Moyo Exchange"));});
+  var l2=document.createElement("div");l2.className="pf-lbl";l2.textContent="This case study";sheet.appendChild(l2);
+  CHAP.forEach(function(it){sheet.appendChild(mkA(it[0],it[1],it[1]===here));});
+  var l3=document.createElement("div");l3.className="pf-lbl";l3.textContent="More";sheet.appendChild(l3);
+  sheet.appendChild(mkA("Process","../process.html",false));
+  sheet.appendChild(mkA("About","../about.html",false));
+  btn.onclick=function(e){e.preventDefault();var op=sheet.classList.contains("open");closeAll();if(!op)sheet.classList.add("open");};
+  bwrap.appendChild(btn);bwrap.appendChild(sheet);row.appendChild(bwrap);
   document.body.appendChild(bar);
 }
-document.addEventListener("click",function(e){if(!(e.target.closest&&e.target.closest("#__pf_nav span"))){var all=document.querySelectorAll(".__pf_menu");for(var k=0;k<all.length;k++)all[k].style.display="none";}});
+document.addEventListener("click",function(e){if(!(e.target.closest&&e.target.closest("#__pf_nav"))){var m=document.querySelectorAll("#__pf_nav .pf-menu");for(var k=0;k<m.length;k++)m[k].classList.remove("open");}});
 var n=0,t=setInterval(function(){build();if(++n>60)clearInterval(t);},350);window.addEventListener("load",build);
 })();</script>
 
