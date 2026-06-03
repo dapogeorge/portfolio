@@ -8,6 +8,11 @@
 <title>About &amp; Contact — Dapo George, Product &amp; UX Designer</title>
 <meta name="description" content="Dapo George is a Product &amp; UX/UI Designer with an MSc in User Experience Engineering and 6+ years across fintech, enterprise CRM and AI. See experience and get in touch." />
 <meta name="author" content="Dapo George" />
+<meta name="keywords" content="Dapo George, about Dapo George, product and UX designer London, service designer, interaction designer, UX UI designer, MSc User Experience Engineering, hire UX designer London, Salesforce UX designer, fintech UX designer" />
+<meta name="geo.region" content="GB-LND" />
+<meta name="geo.placename" content="London, United Kingdom" />
+<meta name="twitter:site" content="@dapogeorge" />
+<meta name="twitter:creator" content="@dapogeorge" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#0f2530" />
 <link rel="canonical" href="https://dapogeorge.com/about.html" />
@@ -25,13 +30,14 @@
 <link rel="stylesheet" href="site.css" />
 <style>
   .about-hero{padding:88px 0 30px;}
-  .about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:56px;align-items:start;}
-  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:34px;}}
+  .about-hero > .about-grid{max-width:880px;margin:0 auto;}
+  .about-grid{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:48px;align-items:start;}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:30px;}.photo{margin-top:0;}}
   .about-body p{font-size:17px;line-height:1.72;color:var(--ink-2);max-width:48ch;margin:18px 0 0;}
   .about-body p:first-child{margin-top:24px;}
   .about-body strong{color:var(--ink);font-weight:600;}
 
-  .photo{aspect-ratio:4/5;max-width:180px;border-radius:16px;background:var(--surface);
+  .photo{aspect-ratio:4/5;max-width:180px;margin-top:128px;border-radius:16px;background:var(--surface);
     border:1px solid var(--hair);box-shadow:0 30px 60px -28px rgba(12,27,51,.45);display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
   .photo img{width:100%;height:100%;object-fit:cover;border-radius:15px;filter:grayscale(1) contrast(1.02);}
   .photo .ph-label{font-family:var(--mono);font-size:12px;color:var(--accent);padding:14px;line-height:1.5;}
@@ -57,10 +63,17 @@
 
   /* contact */
   .contact-list{display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.16);max-width:var(--measure);}
-  .contact-row{display:flex;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.16);}
-  .contact-row .lbl{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#7fb0ff;width:120px;flex:none;}
-  .contact-row a,.contact-row .val{font-family:var(--sans);font-size:18px;color:#fff;text-decoration:none;font-weight:500;}
-  .contact-row a:hover{color:#7fb0ff;}
+  .contact-row{display:flex;align-items:center;gap:18px;padding:17px 4px;border-bottom:1px solid rgba(255,255,255,.16);text-decoration:none;transition:padding .18s ease;}
+  a.contact-row:hover{padding-left:12px;}
+  .contact-row .ico{flex:none;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(127,176,255,.12);border:1px solid rgba(127,176,255,.28);color:#9bc4ff;transition:background .18s ease,color .18s ease,border-color .18s ease;}
+  .contact-row .ico svg{width:20px;height:20px;display:block;}
+  a.contact-row:hover .ico{background:#7fb0ff;border-color:#7fb0ff;color:#0a1730;}
+  .contact-row .ctxt{display:flex;flex-direction:column;gap:3px;min-width:0;}
+  .contact-row .clbl{font-family:var(--mono);font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;color:#7fb0ff;}
+  .contact-row .cval{font-family:var(--sans);font-size:17px;color:#fff;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .contact-row .arr{margin-left:auto;color:rgba(255,255,255,.35);font-family:var(--mono);font-size:16px;transition:color .18s ease,transform .18s ease;}
+  a.contact-row:hover .arr{color:#7fb0ff;transform:translateX(3px);}
+  .contact-row.static .ico{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:rgba(255,255,255,.6);}
 </style>
 
 <script type="application/ld+json">
@@ -78,19 +91,27 @@
     "name": "MSc User Experience Engineering"
   },
   "knowsAbout": [
-    "UX Design",
-    "UI Design",
-    "Service Design",
-    "Interaction Design",
-    "Salesforce Lightning",
-    "Agentforce",
-    "Prompt Engineering",
-    "Information Architecture",
-    "Fintech UX",
-    "Design Systems"
+    "UX Design","UI Design","Service Design","Interaction Design","Product Design",
+    "Salesforce Lightning Design","Salesforce SLDS","Agentforce","Conversational AI Design",
+    "Prompt Engineering","Generative UX","Information Architecture","Fintech UX",
+    "Cross-border Remittance UX","Design Systems","Service Blueprinting","Data Visualisation",
+    "Responsive Design","Accessibility (WCAG 2.2)","UX Research"
   ],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Product & UX Designer",
+    "occupationLocation": { "@type": "City", "name": "London, United Kingdom" },
+    "skills": "UX design, UI design, service design, interaction design, Salesforce Lightning, Agentforce, prompt engineering, fintech UX, design systems"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "London",
+    "addressCountry": "GB"
+  },
   "sameAs": [
-    "https://linkedin.com/in/dapogeorge"
+    "https://linkedin.com/in/dapogeorge",
+    "https://twitter.com/dapogeorge",
+    "https://dapogeorge.com"
   ]
 }
 </script>
@@ -243,21 +264,29 @@
     <div class="sec-body stack">
       <p class="lead">Open to senior product, interaction, and AI-UX work. The fastest ways to reach me:</p>
       <div class="contact-list">
-        <div class="contact-row">
-          <span class="lbl">Email</span>
-          <a href="mailto:dapogeorge@yahoo.com">dapogeorge@yahoo.com</a>
-        </div>
-        <div class="contact-row">
-          <span class="lbl">LinkedIn</span>
-          <a href="https://linkedin.com/in/dapogeorge" target="_top" rel="noopener">linkedin.com/in/dapogeorge</a>
-        </div>
-        <div class="contact-row">
-          <span class="lbl">Website</span>
-          <a href="https://dapogeorge.com" target="_top" rel="noopener">dapogeorge.com</a>
-        </div>
-        <div class="contact-row">
-          <span class="lbl">Based in</span>
-          <span class="val">London, UK</span>
+        <a class="contact-row" href="mailto:dapogeorge@yahoo.com">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6l9 6 9-6"/></svg></span>
+          <span class="ctxt"><span class="clbl">Email</span><span class="cval">dapogeorge@yahoo.com</span></span>
+          <span class="arr" aria-hidden="true">→</span>
+        </a>
+        <a class="contact-row" href="https://linkedin.com/in/dapogeorge" target="_top" rel="noopener">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.4 8.1h4.2V24H.4V8.1zM8.3 8.1h4.02v2.17h.06c.56-1.06 1.93-2.18 3.97-2.18 4.25 0 5.03 2.8 5.03 6.43V24h-4.2v-6.82c0-1.63-.03-3.72-2.27-3.72-2.27 0-2.62 1.77-2.62 3.6V24H8.3V8.1z"/></svg></span>
+          <span class="ctxt"><span class="clbl">LinkedIn</span><span class="cval">linkedin.com/in/dapogeorge</span></span>
+          <span class="arr" aria-hidden="true">→</span>
+        </a>
+        <a class="contact-row" href="https://twitter.com/dapogeorge" target="_top" rel="noopener">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></span>
+          <span class="ctxt"><span class="clbl">Twitter / X</span><span class="cval">@dapogeorge</span></span>
+          <span class="arr" aria-hidden="true">→</span>
+        </a>
+        <a class="contact-row" href="https://dapogeorge.com" target="_top" rel="noopener">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.6 4.3 6 4.3 9.5S14.8 18.9 12 21.5C9.2 18.9 7.7 15.5 7.7 12S9.2 5.1 12 2.5z"/></svg></span>
+          <span class="ctxt"><span class="clbl">Website</span><span class="cval">dapogeorge.com</span></span>
+          <span class="arr" aria-hidden="true">→</span>
+        </a>
+        <div class="contact-row static">
+          <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.13 7-12a7 7 0 1 0-14 0c0 5.87 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+          <span class="ctxt"><span class="clbl">Based in</span><span class="cval">London, UK</span></span>
         </div>
       </div>
     </div>
