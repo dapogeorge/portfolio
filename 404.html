@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page not found (404) — Dapo George</title>
+<meta name="robots" content="noindex, follow" />
+<link rel="stylesheet" href="/site.css" />
+<style>
+  .err-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px 64px;}
+  .err-code{font-family:var(--mono);font-weight:600;font-size:clamp(64px,16vw,150px);line-height:.9;letter-spacing:-.04em;color:var(--ink);margin:0;}
+  .err-code .z{color:var(--accent);}
+  .err-eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin:26px 0 0;}
+  .err-h{font-family:var(--mono);font-weight:600;font-size:clamp(22px,3vw,32px);line-height:1.25;letter-spacing:-.015em;text-transform:lowercase;margin:14px 0 0;color:var(--ink);}
+  .err-body{font-family:var(--sans);font-size:17px;line-height:1.6;color:var(--ink-2);max-width:46ch;margin:18px auto 0;}
+  .err-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:34px;}
+  .err-btn{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.3px;text-decoration:none;padding:13px 22px;border-radius:999px;white-space:nowrap;transition:transform .15s ease, background .15s ease, color .15s ease;}
+  .err-btn.primary{background:var(--ink);color:#fff;}
+  .err-btn.primary:hover{background:var(--accent);transform:translateY(-1px);}
+  .err-btn.ghost{border:1px solid var(--hair);color:var(--ink);}
+  .err-btn.ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);}
+  .err-links{margin-top:40px;display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;}
+  .err-links a{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);text-decoration:none;letter-spacing:.2px;transition:color .15s ease;}
+  .err-links a:hover{color:var(--accent);}
+  .err-links a:not(:last-child)::after{content:"·";margin-left:22px;color:var(--hair);}
+</style>
+</head>
+<body>
+<a class="site-logo" href="/index.html" aria-label="Dapo George — home"><img src="/images/logo-dg.png" alt="Dapo George — DG monogram" /></a>
+
+<nav class="nav">
+  <div class="in">
+    <button class="navtoggle" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">Menu</button>
+    <div class="navlinks">
+      <a href="/index.html">Home</a>
+      <div class="navitem" onclick="if(window.matchMedia('(max-width:760px)').matches)this.classList.toggle('open')">
+        <span class="droptrigger">Work <span class="caret">▾</span></span>
+        <div class="dropmenu">
+          <a href="/salesforce.html">Salesforce UI/UX Strategy<span>Enterprise · Dynamic Forms</span></a>
+          <a href="/ai-agentforce.html">AI &amp; Agentforce<span>Conversational · Multilingual</span></a>
+          <a href="/prompt-engineering.html">Prompt Engineering<span>Generative UX · Flows</span></a>
+          <a href="/design-lab.html">The Design Lab<span>Service · Data · Responsive</span></a>
+          <a href="/moyo/index.html">Moyo Exchange<span>Fintech · Service Design</span></a>
+        </div>
+      </div>
+      <a href="/process.html">Process</a>
+      <a href="/about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<main class="err-wrap">
+  <p class="err-code">4<span class="z">0</span>4</p>
+  <p class="err-eyebrow">Page not found</p>
+  <h1 class="err-h">this page took an unexpected turn</h1>
+  <p class="err-body">The link is broken or the page has moved. No dead end though, here is the way back to the work.</p>
+
+  <div class="err-actions">
+    <a class="err-btn primary" href="/index.html">Back to home</a>
+    <a class="err-btn ghost" href="/index.html#work">See the work</a>
+  </div>
+
+  <nav class="err-links" aria-label="All pages">
+    <a href="/salesforce.html">Salesforce</a>
+    <a href="/ai-agentforce.html">AI &amp; Agentforce</a>
+    <a href="/prompt-engineering.html">Prompt Engineering</a>
+    <a href="/design-lab.html">The Design Lab</a>
+    <a href="/moyo/index.html">Moyo Exchange</a>
+    <a href="/process.html">Process</a>
+    <a href="/about.html">About</a>
+  </nav>
+</main>
+
+<script>
+  /* If someone landed here from a mistyped deep link, log it quietly for the visitor's context */
+  (function(){
+    var p = document.querySelector('.err-body');
+    var path = window.location.pathname;
+    if(path && path !== '/' && path !== '/404.html'){
+      var note = document.createElement('p');
+      note.style.cssText = 'font-family:var(--mono);font-size:12px;color:var(--ink-3);margin:16px auto 0;max-width:46ch;word-break:break-all;';
+      note.textContent = '↳ ' + path;
+      p.insertAdjacentElement('afterend', note);
+    }
+  })();
+</script>
+</body>
+</html>

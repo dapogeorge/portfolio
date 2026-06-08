@@ -560,5 +560,32 @@
     [300,800,1500,2500].forEach(function(t){setTimeout(postH,t);});
   })();
 </script>
+<script>
+/* Image recovery: any image that fails to load degrades to a labelled placeholder instead of a broken icon. */
+(function(){
+  function fallback(img){
+    if(img.dataset.fb) return; img.dataset.fb='1';
+    var label=(img.getAttribute('alt')||'Image unavailable').trim();
+    var w=img.getAttribute('width')||img.clientWidth||320;
+    var ph=document.createElement('div');
+    ph.setAttribute('role','img');
+    ph.setAttribute('aria-label',label+' (image unavailable)');
+    ph.style.cssText='display:flex;align-items:center;justify-content:center;text-align:center;background:repeating-linear-gradient(45deg,rgba(12,27,51,.04) 0 10px,rgba(12,27,51,.07) 10px 20px);border:1px solid rgba(12,27,51,.12);border-radius:10px;color:#67768f;font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.5;padding:24px 18px;min-height:120px;';
+    if(img.width) ph.style.width=img.width+'px';
+    ph.innerHTML='<span>\u26F0\uFE0E  '+label.replace(/</g,'&lt;')+'<br><span style="opacity:.6">image unavailable</span></span>';
+    if(img.parentNode) img.parentNode.replaceChild(ph,img);
+  }
+  document.addEventListener('error',function(e){
+    var t=e.target;
+    if(t && t.tagName==='IMG' && !t.dataset.fb) fallback(t);
+  },true);
+  // also catch images already broken before listener attached
+  window.addEventListener('load',function(){
+    document.querySelectorAll('img').forEach(function(img){
+      if(img.complete && img.naturalWidth===0 && !img.dataset.fb) fallback(img);
+    });
+  });
+})();
+</script>
 </body>
 </html>

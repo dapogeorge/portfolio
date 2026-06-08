@@ -86,6 +86,14 @@
   .chart-frame .chrome .u{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:10px;}
   .chart-frame .chrome .live{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.6px;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:2px 9px;}
   .chart-frame img{width:100%;display:block;}
+  .chart-fallback{padding:38px 28px 32px;text-align:center;}
+  .chart-fallback .cf-bars{display:flex;align-items:flex-end;justify-content:center;gap:10px;height:96px;margin-bottom:22px;}
+  .chart-fallback .cf-bars span{width:26px;background:var(--hair);border-radius:4px 4px 0 0;display:block;}
+  .chart-fallback .cf-bars span.hi{background:var(--accent);}
+  .chart-fallback .cf-title{font-family:var(--mono);font-weight:600;font-size:15px;color:var(--ink);margin:0 0 8px;}
+  .chart-fallback .cf-body{font-family:var(--sans);font-size:14.5px;line-height:1.6;color:var(--ink-2);max-width:42ch;margin:0 auto 16px;}
+  .chart-fallback .cf-link{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--accent);text-decoration:none;}
+  .chart-fallback .cf-link:hover{text-decoration:underline;}
   .chart-embed-slot{margin-top:14px;background:var(--accent-soft);border:1px dashed var(--accent);border-radius:10px;padding:14px 16px;font-family:var(--mono);font-size:11.5px;color:var(--ink-2);line-height:1.6;}
   .chart-embed-slot b{color:var(--accent);}
 
@@ -330,7 +338,15 @@
       <div>
         <figure class="chart-frame" style="margin:0;">
           <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Datawrapper · Average cost of sending $200 by region · 2011 vs 2020</span><span class="live">● interactive</span></div>
-          <iframe title="Average costs of sending $200 by region, 2011 and 2020." aria-label="Grouped Bars" id="datawrapper-chart-iNx66" src="https://datawrapper.dwcdn.net/iNx66/5/" scrolling="no" frameborder="0" style="width:0;min-width:100% !important;border:none;display:block;" height="746" data-external="1"></iframe>
+          <div class="chart-fallback" id="chartFallback" hidden>
+            <div class="cf-bars" aria-hidden="true">
+              <span style="height:42%"></span><span style="height:30%"></span><span style="height:55%"></span><span style="height:88%" class="hi"></span><span style="height:34%"></span>
+            </div>
+            <p class="cf-title">Chart couldn’t load</p>
+            <p class="cf-body">The live chart needs a connection to Datawrapper. The headline figure: Sub-Saharan Africa averages <strong>8.5%</strong> to send $200, nearly triple the <strong>3.0%</strong> UN goal.</p>
+            <a class="cf-link" href="https://datawrapper.dwcdn.net/iNx66/5/" target="_blank" rel="noopener">Open the chart on Datawrapper →</a>
+          </div>
+          <iframe title="Average costs of sending $200 by region, 2011 and 2020." aria-label="Grouped Bars" id="datawrapper-chart-iNx66" src="https://datawrapper.dwcdn.net/iNx66/5/" scrolling="no" frameborder="0" style="width:0;min-width:100% !important;border:none;display:block;" height="746" data-external="1" onerror="showChartFallback()"></iframe>
         </figure>
         <p class="figcap" style="margin-top:14px;">Live interactive chart, hover any bar for exact figures. Chart: Dapo George · Source: World Bank · built with Datawrapper.</p>
       </div>
@@ -338,6 +354,21 @@
     </div>
   </div>
 </section>
+<script>
+  /* Datawrapper recovery: if the chart frame never reports a height (blocked/offline/service down), show a graceful fallback. */
+  (function(){
+    var loaded=false;
+    window.addEventListener('message',function(e){
+      if(e.data && e.data['datawrapper-height']) loaded=true;
+    });
+    window.showChartFallback=function(){
+      var fb=document.getElementById('chartFallback');
+      var fr=document.getElementById('datawrapper-chart-iNx66');
+      if(fb){fb.hidden=false;} if(fr){fr.style.display='none';}
+    };
+    setTimeout(function(){ if(!loaded) window.showChartFallback(); }, 6000);
+  })();
+</script>
 
 <!-- THE LAST MILE BARRIER -->
 <section class="sec">
@@ -503,6 +534,33 @@
     if(window.ResizeObserver){new ResizeObserver(deb).observe(document.body);}
     [300,800,1500,2500].forEach(function(t){setTimeout(postH,t);});
   })();
+</script>
+<script>
+/* Image recovery: any image that fails to load degrades to a labelled placeholder instead of a broken icon. */
+(function(){
+  function fallback(img){
+    if(img.dataset.fb) return; img.dataset.fb='1';
+    var label=(img.getAttribute('alt')||'Image unavailable').trim();
+    var w=img.getAttribute('width')||img.clientWidth||320;
+    var ph=document.createElement('div');
+    ph.setAttribute('role','img');
+    ph.setAttribute('aria-label',label+' (image unavailable)');
+    ph.style.cssText='display:flex;align-items:center;justify-content:center;text-align:center;background:repeating-linear-gradient(45deg,rgba(12,27,51,.04) 0 10px,rgba(12,27,51,.07) 10px 20px);border:1px solid rgba(12,27,51,.12);border-radius:10px;color:#67768f;font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.5;padding:24px 18px;min-height:120px;';
+    if(img.width) ph.style.width=img.width+'px';
+    ph.innerHTML='<span>\u26F0\uFE0E  '+label.replace(/</g,'&lt;')+'<br><span style="opacity:.6">image unavailable</span></span>';
+    if(img.parentNode) img.parentNode.replaceChild(ph,img);
+  }
+  document.addEventListener('error',function(e){
+    var t=e.target;
+    if(t && t.tagName==='IMG' && !t.dataset.fb) fallback(t);
+  },true);
+  // also catch images already broken before listener attached
+  window.addEventListener('load',function(){
+    document.querySelectorAll('img').forEach(function(img){
+      if(img.complete && img.naturalWidth===0 && !img.dataset.fb) fallback(img);
+    });
+  });
+})();
 </script>
 </body>
 </html>

@@ -279,6 +279,27 @@
 </section>
 
 <!-- RESULTS BAND -->
+<!-- EDGE CASES & RECOVERY 01 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Edge cases &amp; recovery</span>
+      <h2>Designing for when it doesn’t know</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">A confident wrong answer is worse than no answer. So I designed the agent around what happens when it can’t be sure, not just the moments it can.</p>
+      <div class="principles">
+        <div class="principle"><div class="ix">A</div><h4>No grounded data, no guess</h4><p>When the question falls outside the records the agent is grounded in, it says so plainly and hands the guest to a human instead of inventing a plausible-sounding answer.</p></div>
+        <div class="principle"><div class="ix">B</div><h4>Low-creativity by choice</h4><p>The 0.3 temperature is a recovery decision as much as a tone one. It narrows the room for the model to drift, so an unclear prompt returns a careful answer rather than a creative one.</p></div>
+        <div class="principle"><div class="ix">C</div><h4>Honest uncertainty</h4><p>If confidence is low, the agent states what it does know, names what it doesn’t, and offers the next step, so the guest is never left guessing whether the answer is trustworthy.</p></div>
+        <div class="principle"><div class="ix">D</div><h4>A graceful handover</h4><p>The escape hatch to a human is treated as a first-class path, not a failure. The conversation, and its context, carries over so the guest never has to start again.</p></div>
+      </div>
+      <div class="quote"><p>The measure of an AI agent isn’t how it answers when it knows. It’s how it behaves the moment it doesn’t.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec band">
   <div class="wrap secgrid">
     <header class="sec-label">
@@ -413,6 +434,27 @@
 </section>
 
 <!-- RESULTS BAND 02 -->
+<!-- EDGE CASES & RECOVERY 02 -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Edge cases &amp; recovery</span>
+      <h2>No dead ends, even when something’s missing</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Wiring the back-end logic into the conversation wasn’t only about the happy path. The harder design work was deciding what the user sees when a piece of that logic comes back empty or unclear.</p>
+      <div class="principles">
+        <div class="principle"><div class="ix">A</div><h4>Empty states that still move forward</h4><p>If no seats, times, or options match, the agent doesn’t stop at “nothing found.” It explains why and offers the nearest alternative, so there’s always a next move.</p></div>
+        <div class="principle"><div class="ix">B</div><h4>Surfacing the blocker, not hiding it</h4><p>When a booking can’t complete, the reason is stated in plain language at the point it happens, rather than failing silently and leaving the user to wonder.</p></div>
+        <div class="principle"><div class="ix">C</div><h4>One source of truth</h4><p>Because the front-end reads directly from Salesforce, the user never sees a confirmation the system can’t honour. Status stays consistent end to end.</p></div>
+        <div class="principle"><div class="ix">D</div><h4>Recoverable by design</h4><p>Every step is reversible. A wrong turn is corrected inside the same conversation, with context preserved, instead of forcing a restart.</p></div>
+      </div>
+      <div class="quote"><p>“Zero dead ends” isn’t a slogan. It’s a rule I designed each unhappy path against.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec band">
   <div class="wrap secgrid">
     <header class="sec-label">
@@ -452,6 +494,33 @@
     if(window.ResizeObserver){new ResizeObserver(deb).observe(document.body);}
     [300,800,1500,2500].forEach(function(t){setTimeout(postH,t);});
   })();
+</script>
+<script>
+/* Image recovery: any image that fails to load degrades to a labelled placeholder instead of a broken icon. */
+(function(){
+  function fallback(img){
+    if(img.dataset.fb) return; img.dataset.fb='1';
+    var label=(img.getAttribute('alt')||'Image unavailable').trim();
+    var w=img.getAttribute('width')||img.clientWidth||320;
+    var ph=document.createElement('div');
+    ph.setAttribute('role','img');
+    ph.setAttribute('aria-label',label+' (image unavailable)');
+    ph.style.cssText='display:flex;align-items:center;justify-content:center;text-align:center;background:repeating-linear-gradient(45deg,rgba(12,27,51,.04) 0 10px,rgba(12,27,51,.07) 10px 20px);border:1px solid rgba(12,27,51,.12);border-radius:10px;color:#67768f;font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.5;padding:24px 18px;min-height:120px;';
+    if(img.width) ph.style.width=img.width+'px';
+    ph.innerHTML='<span>\u26F0\uFE0E  '+label.replace(/</g,'&lt;')+'<br><span style="opacity:.6">image unavailable</span></span>';
+    if(img.parentNode) img.parentNode.replaceChild(ph,img);
+  }
+  document.addEventListener('error',function(e){
+    var t=e.target;
+    if(t && t.tagName==='IMG' && !t.dataset.fb) fallback(t);
+  },true);
+  // also catch images already broken before listener attached
+  window.addEventListener('load',function(){
+    document.querySelectorAll('img').forEach(function(img){
+      if(img.complete && img.naturalWidth===0 && !img.dataset.fb) fallback(img);
+    });
+  });
+})();
 </script>
 </body>
 </html>
