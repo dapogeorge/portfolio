@@ -481,6 +481,172 @@
   </div>
 </section>
 
+<!-- ===================== CASE STUDY 03 ===================== -->
+<header class="wrap hero proj-start" id="case03">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Case Study 03 · Coral Cloud Resorts</div>
+      <h1>Building a live service agent from scratch with Agentforce Builder</h1>
+      <p class="dek">Moving from idea to a fully deployed, identity-aware service agent. I designed the architecture, wired four custom actions to real Salesforce data, wrote the reasoning instructions that govern its decisions, and shipped it live on the Coral Cloud Experience Cloud site.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Client</div><div class="v">Coral Cloud Resorts</div></div>
+      <div><div class="k">Surface</div><div class="v">Experience Cloud Site</div></div>
+      <div><div class="k">Tool</div><div class="v">Agentforce Builder</div></div>
+      <div><div class="k">Scope</div><div class="v">Agent Design, Deployment</div></div>
+    </div>
+  </div>
+  <div class="hero-media" style="margin-top:42px;">
+    <div class="browser">
+      <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Coral Cloud Resorts · coral-cloud · CC Service Agent (Active)</span></div>
+      <img src="images/ag2-live-site.jpg" alt="Coral Cloud Resorts Experience Cloud site with the CC Service Agent chat widget live in the bottom-right corner, mid conversation with a guest" />
+    </div>
+    <div class="figcap"><b>The result.</b> The CC Service Agent live on the Coral Cloud Experience Cloud site, verifying identity and surfacing grounded resort experience data in a single conversation.</div>
+  </div>
+</header>
+
+<!-- 01 CHALLENGE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">The Challenge</span>
+      <h2>Guests need answers without the friction</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Coral Cloud Resorts guests arrived at the site wanting to discover experiences, check availability, and book sessions. The existing flow required navigating away from the moment of interest to find the information they needed.</p>
+      <div class="cards">
+        <div class="card"><div class="n">01</div><h4>Information scattered</h4><p>Experience details, availability, and booking all lived in separate parts of the system, disconnected from the guest journey.</p></div>
+        <div class="card"><div class="n">02</div><h4>Identity verification missing</h4><p>Any data returned had to be matched to a real contact record. Without that check, the agent could serve details to unverified users.</p></div>
+        <div class="card"><div class="n">03</div><h4>Booking required a human</h4><p>Creating a session booking meant staff intervention. Guests could not self-serve from within the experience they were already exploring.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 AGENT ARCHITECTURE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">The Build, Agent Architecture</span>
+      <h2>Defining what the agent does and how it thinks</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">In Agentforce Builder, I started by grounding the agent in a clear role: a customer service representative that helps guests make reservations, update bookings, and navigate all that Coral Cloud has to offer.</p>
+      <div class="body"><p>I created the <strong>CC Service Agent</strong> and assigned it the EinsteinServiceAgent user record to scope its data access correctly. Rather than building one flat agent that handles everything, I created a dedicated <strong>Experience Management subagent</strong>, a focused module responsible for activities: answering questions, checking sessions, and completing bookings.</p></div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Agentforce Builder · Name your agent · CC Service Agent</span></div>
+            <img src="images/ag2-name-agent.jpg" alt="Name your agent dialog showing CC Service Agent name and EinsteinServiceAgent user selected" /></div>
+          <div class="figcap"><b>Naming the agent.</b> Agent name and user record set to control what data it can access in the org.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Agentforce Builder · Explorer · Experience Management subagent</span></div>
+            <img src="images/ag2-experience-mgmt.jpg" alt="Agentforce Builder Explorer with Experience Management subagent open showing four actions" /></div>
+          <div class="figcap"><b>The subagent.</b> Experience Management sits alongside the default escalation, off-topic and ambiguous-question handlers.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 ACTIONS -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">The Build, Action Wiring</span>
+      <h2>Four actions connected to real Salesforce data</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Actions are the tools inside a subagent that get the work done. I designed four, each mapped to a Salesforce Flow, with specific required inputs and controlled outputs governing exactly what the agent can ask for and what it shows in conversation.</p>
+      <div class="principles">
+        <div class="principle"><div class="ix">A</div><h4>Get Experience Details</h4><p>Takes an experience name as required input and returns the full Experience__c record shown in conversation, so the agent can summarise it naturally.</p></div>
+        <div class="principle"><div class="ix">B</div><h4>Get Customer Details</h4><p>Validates identity by requiring both email and membership number before any other action runs. The matched contact record surfaces in conversation.</p></div>
+        <div class="principle"><div class="ix">C</div><h4>Get Sessions</h4><p>Retrieves available sessions for an experience by ID and start date, so the agent always works from a record ID, never an experience name that could mismatch.</p></div>
+        <div class="principle"><div class="ix">D</div><h4>Create Experience Session Booking</h4><p>Takes Contact ID, Session ID, and number of guests to create a live booking record directly inside Salesforce, with no human intervention needed.</p></div>
+      </div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Agentforce Builder · Experience Management · Actions Available For Reasoning</span></div>
+          <img src="images/ag2-four-actions.jpg" alt="Experience Management subagent showing all four actions wired to their Salesforce Flows" /></div>
+        <figcaption class="figcap"><b>All four actions wired.</b> Each action linked to its Salesforce Flow, with required inputs and conversation-visible outputs configured.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 04 INSTRUCTIONS -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">The Build, Reasoning Instructions</span>
+      <h2>Writing the rules that govern every decision</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Actions alone do not make a good agent. The reasoning instructions tell it when to use each action, in what order, and what to do when it does not have enough information yet.</p>
+      <div class="body"><p>I wrote four instructions that create a clear decision hierarchy. Always know the customer before doing anything else, which means Get Customer Details runs before any other action. Always use the experience record ID when querying sessions, which prevents the ambiguity that leads to wrong results. If multiple sessions are available, present the options and let the guest choose. Handle booking by passing the correct IDs from earlier actions into Create Experience Session Booking so nothing gets repeated or misrouted.</p><p>Agentforce Builder's Script view let me write and validate these as structured agent logic, while Canvas view showed how they read in plain language.</p></div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Agentforce Builder · Experience Management · Reasoning Instructions · Canvas</span></div>
+            <img src="images/ag2-instructions-canvas.jpg" alt="Canvas view of Experience Management showing four reasoning instructions with inline action references" /></div>
+          <div class="figcap"><b>Canvas view.</b> Instructions with inline @action references so the agent knows exactly which tool to use at each step.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Agentforce Builder · Experience Management · Script view</span></div>
+            <img src="images/ag2-script-view.jpg" alt="Script view showing the full agent YAML with subagent instructions, action definitions and input-output schemas" /></div>
+          <div class="figcap"><b>Script view.</b> The underlying agent script with action definitions, input-output schemas, and the full instruction set.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 DEPLOY AND TEST -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">05</span>
+      <span class="kicker">Deploy and Live Test</span>
+      <h2>Committed, activated, and tested against real data</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">With the instructions validated in Script view, I committed Version 1 and activated it for production. Agentforce Builder's Preview mode ran a full live test against real org data before the site went live.</p>
+      <div class="body"><p>The test: asking about the full moon beach party experience. The agent routed to Experience Management, applied instruction 2 (verify the customer first) and asked for email and membership number. Once provided, it called Get Customer Details, confirmed the contact record, then called Get Experience Details and returned a grounded readable summary. When the guest asked to book a session for tomorrow, the agent called Get Sessions by experience ID, found an available slot at 10 PM, and asked how many guests. The Summary panel confirmed every step and returned Output Evaluation: <strong>GROUNDED</strong>. I then embedded the agent into the Coral Cloud Experience Cloud site via Embedded Service Deployment and published it live.</p></div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Agentforce Builder · Preview · Summary panel · Output Evaluation: GROUNDED</span></div>
+          <img src="images/ag2-preview-grounded.jpg" alt="Preview Summary panel showing Input, Transition to Experience Management, Reasoning, Actions, and Output Evaluation GROUNDED" /></div>
+        <figcaption class="figcap"><b>Output Evaluation: GROUNDED.</b> Every response traced to real Salesforce data. The full reasoning chain confirmed before the site went live.</figcaption>
+      </figure>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Agentforce Builder · Preview · Identity check, experience retrieval, session and booking</span></div>
+          <img src="images/ag2-preview-conversation.jpg" alt="Full preview conversation showing identity check, Full Moon Beach Party details retrieved, session availability and booking offer" /></div>
+        <figcaption class="figcap"><b>Full conversation in Live Test Mode.</b> Identity check, experience retrieval, session availability and booking offer, all in one unbroken conversation.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Key results</span>
+      <h2>From zero to a live booking-capable service agent</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">A guest can now discover a resort experience, verify their identity, check availability, and complete a booking inside one conversation on the Coral Cloud site, without any staff involvement.</p>
+      <div class="stats">
+        <div class="stat"><div class="big">4 actions</div><div class="lbl">One conversation</div><div class="sub">Get Details, Verify Identity, Get Sessions and Create Booking chained in a single agent turn.</div></div>
+        <div class="stat"><div class="big">GROUNDED</div><div class="lbl">Output Evaluation</div><div class="sub">Every response verified against real Salesforce data. Zero hallucinations in live testing.</div></div>
+        <div class="stat"><div class="big">0 staff needed</div><div class="lbl">Self-service booking</div><div class="sub">Guests complete the full booking journey end to end without any human in the loop.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="in">
     <div class="big">predictable by design.</div>
