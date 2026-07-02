@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="site.css" />
 <style>
   /* page-specific */
-  .lab-intro{padding:84px 0 26px;}
+  .lab-intro{padding-top:84px;padding-bottom:26px;}
   .lab-intro h1{font-family:var(--mono);font-weight:600;font-size:clamp(30px,3.6vw,48px);line-height:1.16;letter-spacing:-.02em;text-transform:lowercase;margin:20px 0 0;max-width:16ch;}
   .lab-intro .dek{font-size:19px;line-height:1.6;color:var(--ink-2);max-width:60ch;margin-top:24px;}
 
@@ -178,7 +178,7 @@
     <div class="navlinks">
       <a href="index.html">Home</a>
       <div class="navitem active" onclick="if(window.matchMedia('(max-width:760px)').matches)this.classList.toggle('open')">
-        <span class="droptrigger">Work <span class="caret">&#9662;</span></span>
+        <span class="droptrigger" tabindex="0">Work <span class="caret">&#9662;</span></span>
         <div class="dropmenu">
           <a href="salesforce.html">Salesforce UI/UX Strategy<span>Enterprise · Dynamic Forms</span></a>
           <a href="ai-agentforce.html">AI &amp; Agentforce<span>Conversational · Multilingual</span></a>
@@ -504,6 +504,17 @@
         <p style="color:#fff;">every breakpoint is a new set of priorities, same brand, re-decided for the context</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- next project + contact -->
+<section class="wrap" style="padding-top:60px;padding-bottom:10px;">
+  <div style="border-top:1px solid var(--hair);padding-top:38px;padding-bottom:34px;display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:center;">
+    <div style="min-width:0;">
+      <div class="kicker" style="margin-bottom:10px;">Next case study</div>
+      <a href="moyo/index.html" style="font-family:var(--mono);font-weight:600;font-size:clamp(20px,2.4vw,28px);line-height:1.2;letter-spacing:-.01em;text-transform:lowercase;color:var(--ink);text-decoration:none;">moyo exchange →</a>
+    </div>
+    <a href="about.html#contact" style="font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.3px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:999px;padding:12px 20px;white-space:nowrap;">Like this thinking? Let’s talk →</a>
   </div>
 </section>
 

@@ -75,6 +75,7 @@
   .droptrigger .caret{font-size:9px;display:inline-block;margin-left:3px;}
   .dropmenu{position:absolute;top:calc(100% + 10px);right:0;background:#0f2530;border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:7px;min-width:238px;box-shadow:0 24px 50px rgba(10,23,48,.5);opacity:0;visibility:hidden;transform:translateY(-6px);transition:.16s;display:flex;flex-direction:column;gap:1px;z-index:210;}
   .navitem:hover .dropmenu,.navitem.open .dropmenu{opacity:1;visibility:visible;transform:translateY(0);}
+.navitem:focus-within .dropmenu{opacity:1;visibility:visible;transform:translateY(0);}
   .dropmenu a{font-family:var(--sans);font-size:13px;color:#cfe0ea;text-decoration:none;padding:10px 12px;border-radius:9px;transition:.12s;display:flex;flex-direction:column;gap:2px;}
   .dropmenu a span{font-family:var(--mono);font-size:10px;color:#8aa2b3;letter-spacing:.4px;}
   .dropmenu a:hover{background:rgba(255,255,255,.08);color:#fff;}
@@ -101,7 +102,7 @@
   .kicker{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink-3);}
 
   /* ---------- HERO ---------- */
-  .hero{padding:88px 0 40px;scroll-margin-top:84px;}
+  .hero{padding-top:88px;padding-bottom:40px;scroll-margin-top:84px;}
   .proj-start{border-top:1px solid var(--hair);padding-top:92px;}
   .herogrid{display:grid;gap:56px;align-items:start;grid-template-columns:1.4fr 1fr;}
   .hero h1{font-family:var(--mono);font-weight:600;font-size:clamp(27px,3.1vw,40px);line-height:1.24;letter-spacing:-.015em;text-transform:lowercase;margin:20px 0 0;max-width:19ch;}
@@ -195,7 +196,7 @@
   @media(max-width:1024px){:root{--wrap:940px;}}
   @media(max-width:640px){
     section.sec{padding:52px 0;}
-    .hero{padding:84px 0 30px;}
+    .hero{padding-top:84px;padding-bottom:30px;}
     .meta{grid-template-columns:1fr 1fr;gap:18px 26px;}
   }
   @media(max-width:480px){
@@ -271,7 +272,7 @@
     <div class="navlinks">
       <a href="index.html">Home</a>
       <div class="navitem active" onclick="if(window.matchMedia('(max-width:760px)').matches)this.classList.toggle('open')">
-        <span class="droptrigger">Work <span class="caret">&#9662;</span></span>
+        <span class="droptrigger" tabindex="0">Work <span class="caret">&#9662;</span></span>
         <div class="dropmenu">
           <a href="salesforce.html" class="active">Salesforce UI/UX Strategy<span>Enterprise · Dynamic Forms</span></a>
           <a href="ai-agentforce.html">AI &amp; Agentforce<span>Conversational · Multilingual</span></a>
@@ -524,6 +525,17 @@
         <div class="stat"><div class="big">future-proof</div><div class="lbl">visibility rules ready</div><div class="sub">Show or hide fields by profile or record status.</div></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- next project + contact -->
+<section class="wrap" style="padding-top:60px;padding-bottom:10px;">
+  <div style="border-top:1px solid var(--hair);padding-top:38px;padding-bottom:34px;display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:center;">
+    <div style="min-width:0;">
+      <div class="kicker" style="margin-bottom:10px;">Next case study</div>
+      <a href="ai-agentforce.html" style="font-family:var(--mono);font-weight:600;font-size:clamp(20px,2.4vw,28px);line-height:1.2;letter-spacing:-.01em;text-transform:lowercase;color:var(--ink);text-decoration:none;">ai &amp; agentforce →</a>
+    </div>
+    <a href="about.html#contact" style="font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.3px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:999px;padding:12px 20px;white-space:nowrap;">Like this thinking? Let’s talk →</a>
   </div>
 </section>
 
