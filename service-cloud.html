@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Service Cloud &amp; Experience Cloud — Self-Service Sites &amp; Enhanced Chat | Dapo George</title>
+<meta name="description" content="Salesforce Service Cloud and Experience Cloud case studies: building self-service community sites with Experience Builder, and wiring Enhanced Chat through Omni-Channel routing, queues and permission sets." />
+<meta name="author" content="Dapo George" />
+<meta name="keywords" content="Salesforce Service Cloud, Experience Cloud, Experience Builder, Enhanced Chat, Omni-Channel routing, messaging channel, Service Console, permission sets, service design, Dapo George" />
+<meta name="geo.region" content="GB-LND" />
+<meta name="geo.placename" content="London, United Kingdom" />
+<meta name="twitter:site" content="@dapogeorge" />
+<meta name="twitter:creator" content="@dapogeorge" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0f2530" />
+<link rel="canonical" href="https://dapogeorge.com/service-cloud.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Dapo George — Portfolio" />
+<meta property="og:title" content="Service Cloud &amp; Experience Cloud — Self-Service Sites &amp; Enhanced Chat | Dapo George" />
+<meta property="og:description" content="Salesforce Service Cloud and Experience Cloud case studies: building self-service community sites and wiring Enhanced Chat through Omni-Channel routing." />
+<meta property="og:url" content="https://dapogeorge.com/service-cloud.html" />
+<meta property="og:image" content="https://dapogeorge.com/images/sc-channel-created.jpg" />
+<meta property="og:image:alt" content="Service Cloud &amp; Experience Cloud case studies by Dapo George" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Service Cloud &amp; Experience Cloud — Self-Service Sites &amp; Enhanced Chat | Dapo George" />
+<meta name="twitter:description" content="Salesforce Service Cloud and Experience Cloud case studies: self-service sites and Enhanced Chat routing." />
+<meta name="twitter:image" content="https://dapogeorge.com/images/sc-channel-created.jpg" />
+<link rel="stylesheet" href="site.css" />
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CreativeWork",
+ "name": "Service Cloud & Experience Cloud — Self-Service Sites & Enhanced Chat",
+ "headline": "Service Cloud & Experience Cloud — Self-Service Sites & Enhanced Chat",
+ "url": "https://dapogeorge.com/service-cloud.html",
+ "image": "https://dapogeorge.com/images/sc-channel-created.jpg",
+ "creator": { "@type": "Person", "name": "Dapo George", "url": "https://dapogeorge.com/" },
+ "author": { "@type": "Person", "name": "Dapo George" },
+ "about": [ "Salesforce Service Cloud", "Experience Cloud", "Enhanced Chat", "Omni-Channel Routing" ],
+ "keywords": "Service Cloud, Experience Cloud, Experience Builder, Enhanced Chat, Omni-Channel",
+ "inLanguage": "en",
+ "isPartOf": { "@type": "WebSite", "name": "Dapo George — Portfolio", "url": "https://dapogeorge.com/" }
+}
+</script>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6B00FEHBYC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6B00FEHBYC');
+</script>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <rect width="100" height="100" fill="#4b56d6"/>
+    <circle cx="38" cy="42" r="15" fill="#fff"/>
+    <circle cx="64" cy="42" r="15" fill="#fff" opacity="0.7"/>
+    <rect x="30" y="66" width="40" height="7" rx="3.5" fill="#fff" opacity="0.85"/>
+  </svg>
+</template>
+<div id="progress"></div>
+<a class="site-logo" href="index.html" aria-label="Dapo George — home"><img src="images/logo-dg.png" alt="Dapo George — DG monogram" /></a>
+
+<nav class="nav">
+  <div class="in">
+    <button class="navtoggle" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">Menu</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <div class="navitem active" onclick="if(window.matchMedia('(max-width:760px)').matches)this.classList.toggle('open')">
+        <span class="droptrigger" tabindex="0">Work <span class="caret">&#9662;</span></span>
+        <div class="dropmenu">
+          <a href="salesforce.html">Salesforce UI/UX Strategy<span>Enterprise · Dynamic Forms</span></a>
+          <a href="ai-agentforce.html">AI &amp; Agentforce<span>Conversational · Multilingual</span></a>
+          <a href="prompt-engineering.html">Prompt Engineering<span>Generative UX · Flows</span></a>
+          <a href="design-lab.html">The Design Lab<span>Service · Data · Responsive</span></a>
+          <a href="service-cloud.html" class="active">Service &amp; Experience Cloud<span>Self-Service · Enhanced Chat</span></a>
+          <a href="moyo/index.html">Moyo Exchange<span>Fintech · Service Design</span></a>
+        </div>
+      </div>
+      <a href="process.html">Process</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== PAGE HERO / MANIFESTO ===================== -->
+<header class="wrap hero" id="overview">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Service Cloud · Experience Cloud</div>
+      <h1>Designing the service experience, from public site to live agent</h1>
+      <p class="dek">Good service design is not just the screen a customer sees. It is the routing, the queues, the permissions and the channels working quietly behind it. This series documents how I stand up customer service on Salesforce end to end, from a public self-service site to a live human conversation, so a question never falls through a gap.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Role</div><div class="v">Product &amp; UX Designer</div></div>
+      <div><div class="k">Platform</div><div class="v">Salesforce Service Cloud</div></div>
+      <div><div class="k">Focus</div><div class="v">Experience Cloud · Messaging</div></div>
+      <div><div class="k">Discipline</div><div class="v">Service Configuration</div></div>
+    </div>
+  </div>
+  <div class="media-lg" style="margin-top:38px;max-width:var(--measure);">
+    <div class="chips">
+      <span class="chip">Experience Builder</span>
+      <span class="chip">Omni-Channel</span>
+      <span class="chip">Enhanced Chat</span>
+      <span class="chip">Routing &amp; Queues</span>
+      <span class="chip">Permission Sets</span>
+      <span class="chip">Service Console</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== CASE STUDY 01 ===================== -->
+<header class="wrap hero proj-start" id="case01">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Case Study 01 · Category 1 Biking</div>
+      <h1>Launching a self-service community with Enhanced Chat</h1>
+      <p class="dek">Category 1 Biking is a UK bike shop with a small chain of stores and a passionate, loyal following. The community was active, but the shop had no way to engage beyond a handful of social media pages. I built them a self-service Experience Cloud site and wired live Enhanced Chat behind it, so fans can find answers themselves and reach a real person when they need one.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Client</div><div class="v">Category 1 Biking</div></div>
+      <div><div class="k">Surface</div><div class="v">Experience Cloud Site</div></div>
+      <div><div class="k">Channel</div><div class="v">Enhanced Chat</div></div>
+      <div><div class="k">Routing</div><div class="v">Omni-Channel Queue</div></div>
+    </div>
+  </div>
+  <div class="hero-media" style="margin-top:42px;">
+    <div class="browser">
+      <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · Messaging Settings · Enhanced Chat channel created</span></div>
+      <img src="images/sc-channel-created.jpg" alt="Salesforce confirming the Category 1 Biking messaging channel and Enhanced Chat deployment were created" />
+    </div>
+    <div class="figcap"><b>The result.</b> A live Enhanced Chat channel and web deployment for Category 1 Biking, routed to a real support queue and ready to embed on their site.</div>
+  </div>
+</header>
+
+<!-- 01 CHALLENGE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">The Challenge</span>
+      <h2>A loyal community with nowhere to talk</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">The shop had great word of mouth, hosted local meetups, and had started sponsoring road races. What it did not have was a single place for that community to search for answers, ask questions, or reach the team directly.</p>
+      <div class="cards">
+        <div class="card"><div class="n">01</div><h4>No home base</h4><p>Engagement lived on scattered social platforms the shop did not control or own.</p></div>
+        <div class="card"><div class="n">02</div><h4>No self-service</h4><p>Every question, however simple, had to become a phone call or an in-store visit.</p></div>
+        <div class="card"><div class="n">03</div><h4>No live handoff</h4><p>There was no way to move a customer from browsing to a real, routed conversation.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 FOUNDATION -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">The Foundation</span>
+      <h2>A self-service site in Experience Builder</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I enabled Digital Experiences and built the site on the Customer Service template, chosen because it gives members a searchable knowledge base, Q&amp;A, and case creation out of the box.</p>
+      <div class="body"><p>Picking the right template is a design decision, not a technical default. The Customer Service template leads with search and self-service, which matches how a curious cyclist actually behaves: they want to find the answer themselves first, and only then talk to a human.</p></div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Experience Cloud · Choose the Experience You Love</span></div>
+            <img src="images/sc-template-gallery.jpg" alt="Experience Cloud template gallery with the Customer Service template among the options" /></div>
+          <div class="figcap"><b>Choosing the template.</b> The Customer Service template, built for self-service, curated knowledge and support cases.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Experience Cloud · Enter a Name · Category 1 Biking</span></div>
+            <img src="images/sc-name-site.jpg" alt="Naming the new Experience Cloud site Category 1 Biking" /></div>
+          <div class="figcap"><b>Naming the site.</b> Category 1 Biking, on the shop's own Salesforce domain.</div>
+        </figure>
+      </div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Experience Workspaces · Category 1 Biking</span></div>
+          <img src="images/sc-workspaces.jpg" alt="Experience Workspaces for the Category 1 Biking site showing Builder, Moderation, Content Management and more" /></div>
+        <figcaption class="figcap"><b>The workspace.</b> Builder, Moderation, Content Management, Gamification and Guided Setup, the full toolkit for running the community.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 03 ROUTING -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">The Routing Backbone</span>
+      <h2>Getting the right message to the right person</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">A chat button is useless if no one is listening. Before touching the channel, I built the routing that decides who a conversation goes to and how many a person can handle at once.</p>
+      <div class="principles">
+        <div class="principle"><div class="ix">A</div><h4>Enhanced Omni-Channel</h4><p>Turned on skills-based and direct-to-agent routing so work distributes to the most available, qualified person.</p></div>
+        <div class="principle"><div class="ix">B</div><h4>Routing configuration</h4><p>Created a Category 1 Biking config with a Most Available model and a set capacity, so agents are never flooded.</p></div>
+        <div class="principle"><div class="ix">C</div><h4>A dedicated queue</h4><p>Built the Category 1 Biking Queue, scoped to Messaging Sessions and linked to the routing configuration.</p></div>
+        <div class="principle"><div class="ix">D</div><h4>Named the members</h4><p>Added the support user to the queue, so live conversations always have a real owner.</p></div>
+      </div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · Omni-Channel Settings</span></div>
+            <img src="images/sc-omni-settings.jpg" alt="Omni-Channel Settings with Enhanced Omni-Channel Routing and skills-based routing enabled" /></div>
+          <div class="figcap"><b>Omni-Channel on.</b> Enhanced routing and skills-based, direct-to-agent distribution enabled.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · Routing Configurations · Category 1 Biking</span></div>
+            <img src="images/sc-routing-config.jpg" alt="Routing configuration for Category 1 Biking with Most Available model and set capacity" /></div>
+          <div class="figcap"><b>The rules.</b> Priority, a Most Available model and a capacity of five, so work is spread fairly.</div>
+        </figure>
+      </div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · New Queue · Category 1 Biking Queue</span></div>
+          <img src="images/sc-new-queue.jpg" alt="New Queue for Category 1 Biking scoped to the Messaging Session object and linked to the routing configuration" /></div>
+        <figcaption class="figcap"><b>The queue.</b> Category 1 Biking Queue, scoped to Messaging Sessions and wired to the routing configuration.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PERMISSIONS -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">Access &amp; Permissions</span>
+      <h2>Giving agents exactly what they need, no more</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I created a dedicated MIAW (Messaging for In-App and Web) permission set rather than loosening a profile. It grants the ability to initiate messaging sessions and full access to the Messaging Session object, then assigns cleanly to the support user.</p>
+      <div class="body"><p>Scoping access to a purpose-built permission set is a quiet but important design choice. It keeps the system auditable and safe: the person can do the messaging job and nothing they should not, and the access can be revoked in one place.</p></div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · Permission Sets · MIAW · Initiate Messaging Sessions</span></div>
+          <img src="images/sc-permission-messaging.jpg" alt="MIAW permission set with Initiate Messaging Sessions enabled under Call Center app permissions" /></div>
+        <figcaption class="figcap"><b>The permission set.</b> MIAW, with Initiate Messaging Sessions enabled and Messaging Session object access granted.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 05 CHANNEL -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">05</span>
+      <span class="kicker">The Channel</span>
+      <h2>Turning on the conversation</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">With messaging enabled, I added an Enhanced Chat channel and connected it straight to the routing I had already built, so the moment a customer starts a chat it lands in the right queue.</p>
+      <div class="body"><p>This is the join between front stage and back stage: the customer sees a simple chat window, but behind it the channel points at the Category 1 Biking Queue through Omni-Queue routing. Nothing is left to chance.</p></div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Add a Channel · Native Channels</span></div>
+            <img src="images/sc-add-channel.jpg" alt="Add a Channel dialog showing native channel types including Enhanced Chat" /></div>
+          <div class="figcap"><b>Picking the channel.</b> Enhanced Chat, for in-app and web messaging.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Add a Channel · Channel Routing · Omni-Queue</span></div>
+            <img src="images/sc-channel-routing.jpg" alt="Channel routing set to Omni-Queue and pointed at the Category 1 Biking Queue" /></div>
+          <div class="figcap"><b>Wiring the routing.</b> Omni-Queue routing, pointed straight at the Category 1 Biking Queue.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 CONSOLE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">06</span>
+      <span class="kicker">The Agent Console</span>
+      <h2>Where the team actually works</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Finally, I brought the channel into the Service Console by adding the Omni-Channel utility, so staff can accept and answer messages without leaving their workspace, and added Send A Message to the global publisher for outbound conversations.</p>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Lightning App Builder · Service Console · Utility Items · Omni-Channel</span></div>
+          <img src="images/sc-service-console.jpg" alt="Adding the Omni-Channel utility item to the Service Console in Lightning App Builder" /></div>
+        <figcaption class="figcap"><b>At their fingertips.</b> The Omni-Channel widget pinned into the Service Console, so agents respond in place.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Key results</span>
+      <h2>A full service loop, from site to person</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Category 1 Biking now owns its community space, lets fans self-serve, and can pull anyone into a real, routed conversation the moment they need help.</p>
+      <div class="stats">
+        <div class="stat"><div class="big">Own the space</div><div class="lbl">Self-service site</div><div class="sub">A branded Experience Cloud site with search, knowledge and cases, no longer renting an audience on social.</div></div>
+        <div class="stat"><div class="big">Right person</div><div class="lbl">Routed every time</div><div class="sub">Omni-Channel routing, a capacity-managed configuration and a dedicated queue behind every chat.</div></div>
+        <div class="stat"><div class="big">One workspace</div><div class="lbl">Answered in place</div><div class="sub">Agents accept and reply from the Service Console, with access scoped to a clean permission set.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDY 02 ===================== -->
+<header class="wrap hero proj-start" id="case02">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Case Study 02 · Category 1 Biking</div>
+      <h1>Deploying live chat onto the community site</h1>
+      <p class="dek">A messaging channel is only useful once customers can actually reach it. This is the end-to-end deployment: standing up a secure web deployment, wiring the browser security handshake, dropping the chat window onto the Experience Cloud site, and building the console page where agents answer.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Client</div><div class="v">Category 1 Biking</div></div>
+      <div><div class="k">Surface</div><div class="v">Experience Cloud Site</div></div>
+      <div><div class="k">Deployment</div><div class="v">Embedded Web</div></div>
+      <div><div class="k">Console</div><div class="v">Messaging Session</div></div>
+    </div>
+  </div>
+  <div class="hero-media" style="margin-top:42px;">
+    <div class="browser">
+      <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Embedded Service · Category 1 Biking Deployment · Web (v1) · Active</span></div>
+      <img src="images/sc2-deployment-settings.jpg" alt="Category 1 Biking web deployment settings page showing it active and published, with Settings, Branding, Code Snippet and Custom UI Components tiles" />
+    </div>
+    <div class="figcap"><b>The result.</b> A published, active web deployment for Category 1 Biking, connected to the support channel and ready to embed on the live site.</div>
+  </div>
+</header>
+
+<!-- 01 CHALLENGE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">The Challenge</span>
+      <h2>A channel with nowhere to appear</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">The support channel and its routing existed, but the chat window itself had no home. Getting live conversations onto a public site is not a single toggle. It is a chain of dependencies that all have to line up.</p>
+      <div class="cards">
+        <div class="card"><div class="n">01</div><h4>No deployment</h4><p>The channel needed an Embedded Web deployment to render a chat window on a real page.</p></div>
+        <div class="card"><div class="n">02</div><h4>Browsers block it</h4><p>Cross-origin and content-security rules stop an external site from talking to Salesforce until explicitly trusted.</p></div>
+        <div class="card"><div class="n">03</div><h4>Agents need a cockpit</h4><p>Incoming chats have to land on a record page built for handling a live conversation, not a generic layout.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 DEPLOYMENT -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">The Deployment</span>
+      <h2>Publishing an Embedded Web deployment</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I copied the Experience Cloud site domain, then created a new Embedded Service deployment: Enhanced Chat, Web type, pointed at the Category 1 Biking Support Channel.</p>
+      <div class="body"><p>Choosing Enhanced Chat over legacy web chat matters. It gives customers a persistent conversation that survives a page refresh, which is the modern, expected behaviour. Binding the deployment to the existing channel means every conversation inherits the routing and queue already built.</p></div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · Domains · Experience Cloud Sites Domain</span></div>
+            <img src="images/sc2-domains.jpg" alt="Domains setup page with the Experience Cloud Sites Domain row highlighted for copying" /></div>
+          <div class="figcap"><b>The domain.</b> Copying the Experience Cloud Sites domain that the deployment will run on.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">New Embedded Service deployment · Enhanced Chat</span></div>
+            <img src="images/sc2-new-deployment.jpg" alt="New Embedded Service deployment dialog with Enhanced Chat selected" /></div>
+          <div class="figcap"><b>Enhanced Chat.</b> Persistent conversations via an embedded window on the site.</div>
+        </figure>
+      </div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">New deployment · Web</span></div>
+            <img src="images/sc2-web-type.jpg" alt="Deployment type selection with Web chosen over Mobile and Custom Client" /></div>
+          <div class="figcap"><b>Web type.</b> The right target for a public Experience Cloud site.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">New deployment · Name, Domain &amp; Channel</span></div>
+            <img src="images/sc2-deployment-form.jpg" alt="Deployment form with name Category 1 Biking Deployment, the site domain, and Category 1 Biking Support Channel selected" /></div>
+          <div class="figcap"><b>Wiring it up.</b> Name, site domain, and the existing support channel, then Save and Publish.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 SECURITY -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">The Security Handshake</span>
+      <h2>Teaching the browser to trust the connection</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">This is the invisible work that makes everything else function. A browser will not let an external site exchange live data with Salesforce unless the origin is explicitly allowed and the content-security rules permit it.</p>
+      <div class="principles">
+        <div class="principle"><div class="ix">A</div><h4>CORS allow-list</h4><p>Added the site URL to the Cross-Origin Resource Sharing allowed origins, so the browser permits the exchange.</p></div>
+        <div class="principle"><div class="ix">B</div><h4>The scrt2 endpoint</h4><p>Pulled the real-time messaging endpoint (scrt2URL) from the deployment's code snippet.</p></div>
+        <div class="principle"><div class="ix">C</div><h4>Trusted URL + CSP</h4><p>Registered that endpoint as a Trusted URL scoped to Experience Builder Sites, with all six CSP directives enabled.</p></div>
+        <div class="principle"><div class="ix">D</div><h4>Why it matters</h4><p>Skip any one of these and the chat window silently fails to load. Getting it right is the difference between a demo and a deployment.</p></div>
+      </div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · CORS · Allowed Origins List</span></div>
+            <img src="images/sc2-cors.jpg" alt="CORS allowed origins list including the Category 1 Biking site URL" /></div>
+          <div class="figcap"><b>CORS.</b> The site origin added to the allow-list.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Code Snippet · scrt2URL</span></div>
+            <img src="images/sc2-scrt-url.jpg" alt="Chat code snippet showing the scrt2URL real-time messaging endpoint" /></div>
+          <div class="figcap"><b>The endpoint.</b> Copying the scrt2URL from the generated code snippet.</div>
+        </figure>
+      </div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · Trusted URLs · SCRT_URL · CSP Directives</span></div>
+          <img src="images/sc2-trusted-url.jpg" alt="Trusted URL edit for SCRT_URL with CSP context Experience Builder Sites and all six CSP directives checked" /></div>
+        <figcaption class="figcap"><b>Trusted URL.</b> The messaging endpoint trusted for Experience Builder Sites, with every CSP directive enabled.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PLACING CHAT -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">Placing Chat on the Site</span>
+      <h2>Dropping the window where customers are</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">In Experience Builder I dragged the Embedded Messaging component into the template footer so it rides along on every page, set it to always visible, opened the site to guest users, and published.</p>
+      <div class="body"><p>Footer placement is deliberate: one component, present site-wide, so a customer can start a conversation from wherever their question strikes, not just a dedicated contact page.</p></div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Experience Builder · Components · Embedded Messaging</span></div>
+            <img src="images/sc2-component.jpg" alt="Experience Builder components panel with the Embedded Messaging component under Support" /></div>
+          <div class="figcap"><b>The component.</b> Embedded Messaging, dragged into the template footer.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Experience Builder · Publish your site</span></div>
+            <img src="images/sc2-publish.jpg" alt="Publish your site dialog for the Category 1 Biking Experience Cloud site" /></div>
+          <div class="figcap"><b>Going live.</b> Publishing the site with chat in place and guest access on.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 AGENT COCKPIT -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">05</span>
+      <span class="kicker">The Agent Cockpit</span>
+      <h2>A record page built for live conversation</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">The last piece is where the agent works. I built a Messaging Session record page for the Service Console, cloned from the default, then added a dedicated Messaging tab holding the Enhanced Conversation component.</p>
+      <div class="body"><p>I activated it as the org default across desktop and phone, so every incoming chat opens on a purpose-built page: the live conversation on the left, customer and case context on the right. That is the difference between an agent who is guessing and one who has everything in view.</p></div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Lightning App Builder · Messaging Session Record Page · Messaging tab</span></div>
+            <img src="images/sc2-record-page.jpg" alt="Lightning App Builder editing the Messaging Session record page with Conversation, Details and a new Messaging tab" /></div>
+          <div class="figcap"><b>Building the page.</b> A custom Messaging tab added alongside Conversation and Details.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Messaging Session · Enhanced Conversation · Active</span></div>
+            <img src="images/sc2-final-record.jpg" alt="Finished Messaging Session record page with the Enhanced Conversation component live under the Messaging tab" /></div>
+          <div class="figcap"><b>Live.</b> The Enhanced Conversation component in place, activated as the org default for desktop and phone.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS 02 -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Key results</span>
+      <h2>Chat, live and reachable end to end</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">A customer on the Category 1 Biking site can now open a persistent chat from any page, and every conversation lands on a console page built to answer it.</p>
+      <div class="stats">
+        <div class="stat"><div class="big">Site-wide</div><div class="lbl">Always reachable</div><div class="sub">Embedded Messaging in the footer, present on every page for guest and member alike.</div></div>
+        <div class="stat"><div class="big">Secure by design</div><div class="lbl">CORS + CSP + Trusted URL</div><div class="sub">The full browser security handshake wired so the connection actually loads.</div></div>
+        <div class="stat"><div class="big">Answer-ready</div><div class="lbl">Purpose-built console</div><div class="sub">A Messaging Session page with live conversation and customer context side by side.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDY 03 ===================== -->
+<header class="wrap hero proj-start" id="case03">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Case Study 03 · Category 1 Biking</div>
+      <h1>Building a knowledge base when the setup menu was missing</h1>
+      <p class="dek">Category 1 Biking's support team ran on FAQs taped to office walls and cash registers. The task was to turn that scattered knowledge into a searchable Lightning Knowledge base on the community site. The twist: the standard Service Setup route was missing from my org, so I had to find another way in.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Client</div><div class="v">Category 1 Biking</div></div>
+      <div><div class="k">Feature</div><div class="v">Lightning Knowledge</div></div>
+      <div><div class="k">Focus</div><div class="v">Case Deflection</div></div>
+      <div><div class="k">Skill</div><div class="v">Creative Problem-Solving</div></div>
+    </div>
+  </div>
+  <div class="hero-media" style="margin-top:42px;">
+    <div class="browser">
+      <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Service Console · Knowledge · 3 articles published</span></div>
+      <img src="images/sc3-published.jpg" alt="Service Console Knowledge list showing three published FAQ articles for Category 1 Biking" />
+    </div>
+    <div class="figcap"><b>The result.</b> Three published, customer-visible Knowledge articles, live and searchable, from a base that did not exist an hour earlier.</div>
+  </div>
+</header>
+
+<!-- 01 CHALLENGE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">The Challenge</span>
+      <h2>Knowledge on the wall, not on the web</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">A quality supply of knowledge articles does wonders for case deflection, customer satisfaction and agent productivity. Category 1 Biking had the knowledge, it was just in the wrong place: printed FAQs stuck to walls and registers, invisible to anyone online.</p>
+      <div class="cards">
+        <div class="card"><div class="n">01</div><h4>No case deflection</h4><p>Every repeat question became a call or a visit, because customers could not self-serve an answer.</p></div>
+        <div class="card"><div class="n">02</div><h4>No structure</h4><p>Knowledge needed a record type, a proper answer field, and a layout before it could hold real articles.</p></div>
+        <div class="card"><div class="n">03</div><h4>A blocked front door</h4><p>The guided Service Setup route the documentation assumed simply was not present in this org.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 THE WORKAROUND -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">The Creative Workaround</span>
+      <h2>Finding another way in</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">The instructions said to open Service Setup and run the Knowledge guided setup. That menu was missing from my gear icon. Rather than stall, I reasoned backwards from what the wizard actually does, and went straight to the underlying setting myself.</p>
+      <div class="body"><p>Every guided setup is just a friendly wrapper around real configuration pages. So I opened standard Setup, searched Knowledge in Quick Find, went into Knowledge Settings, and enabled Lightning Knowledge directly, assigning myself as a Knowledge author in the process. Same destination, different door. This is the part of the job that never appears in a tutorial: when the happy path is gone, you need to understand the system well enough to build your own.</p></div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · Quick Find · Knowledge</span></div>
+            <img src="images/sc3-knowledge-search.jpg" alt="Setup with Knowledge searched in Quick Find, revealing Knowledge Settings in the left navigation" /></div>
+          <div class="figcap"><b>The side door.</b> Bypassing the missing Service Setup by searching Knowledge in standard Setup.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Knowledge Settings · Enable Lightning Knowledge</span></div>
+            <img src="images/sc3-enable-knowledge.jpg" alt="Knowledge Settings page with Enable Lightning Knowledge checked" /></div>
+          <div class="figcap"><b>Enabled.</b> Lightning Knowledge switched on directly, no wizard required.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 STRUCTURE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">Structuring the Article</span>
+      <h2>A record type, a field, and a layout</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">With Knowledge live, I shaped the article itself. A simple FAQ record type, a long text field to hold the answer, and a page layout that puts that field exactly where an author expects it.</p>
+      <div class="principles">
+        <div class="principle"><div class="ix">A</div><h4>FAQ record type</h4><p>Confirmed the FAQ record type, so articles are typed for simple question-and-answer content.</p></div>
+        <div class="principle"><div class="ix">B</div><h4>The Text field</h4><p>Created a Text Area (Long) field, 32,768 characters, three visible lines, made visible to every profile.</p></div>
+        <div class="principle"><div class="ix">C</div><h4>Layout placement</h4><p>Dragged the Text field directly under Title in the Information section, so writing an article reads top to bottom.</p></div>
+        <div class="principle"><div class="ix">D</div><h4>Why it matters</h4><p>Structure before content. Get the object right first and every article after it is effortless.</p></div>
+      </div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Object Manager · Knowledge · Knowledge__kav</span></div>
+            <img src="images/sc3-object-kav.jpg" alt="Object Manager list with the Knowledge (Knowledge__kav) object selected" /></div>
+          <div class="figcap"><b>The object.</b> Working directly in the Knowledge object via Object Manager.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Knowledge · Record Types · FAQ (Active)</span></div>
+            <img src="images/sc3-record-type.jpg" alt="Knowledge Record Types showing the active FAQ record type for simple question and answer articles" /></div>
+          <div class="figcap"><b>The record type.</b> FAQ, active and ready for question-and-answer articles.</div>
+        </figure>
+      </div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">New Custom Field · Text Area (Long)</span></div>
+            <img src="images/sc3-field-type.jpg" alt="New custom field data type selection with Text Area Long chosen" /></div>
+          <div class="figcap"><b>The data type.</b> Text Area (Long), room for a full answer.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">New Custom Field · Text · 32,768 · 3 lines</span></div>
+            <img src="images/sc3-field-details.jpg" alt="Custom field details with label Text, length 32768 and 3 visible lines" /></div>
+          <div class="figcap"><b>The details.</b> Labelled Text, 32,768 characters, three visible lines.</div>
+        </figure>
+      </div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Knowledge Layout · Text placed under Title</span></div>
+          <img src="images/sc3-page-layout.jpg" alt="Knowledge page layout editor with the Text field placed under Title in the Information section" /></div>
+        <figcaption class="figcap"><b>The layout.</b> The Text field dropped directly beneath Title, so authoring flows naturally.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 04 TOPICS -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">Making It Findable</span>
+      <h2>Enabling Topics so articles can surface</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Without Knowledge topics enabled, articles cannot be displayed outside the org. Category 1 Biking wants conversations and articles to cluster around common themes, so I enabled Topics for the Knowledge object and pointed topic suggestions at the article Title.</p>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Topics for Objects · Knowledge · Enable Topics · Title</span></div>
+          <img src="images/sc3-topics.jpg" alt="Topics for Objects with Knowledge selected, Enable Topics checked and Title chosen as the topic field" /></div>
+        <figcaption class="figcap"><b>Topics on.</b> Enabled for Knowledge with Title driving topic suggestions, so articles can appear on the public site.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 05 PUBLISH -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">05</span>
+      <span class="kicker">Writing &amp; Publishing</span>
+      <h2>From blank base to three live articles</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">With the foundation in place, I opened Knowledge from the App Launcher and authored three real FAQ articles, each marked visible to customers, then published all three in one pass.</p>
+      <div class="body"><p>The articles answered genuine community questions: a product release date, how to find local bike groups, and expected delivery times. Small, human answers, now searchable on the site instead of taped to a register.</p></div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">App Launcher · Knowledge</span></div>
+          <img src="images/sc3-app-launcher.jpg" alt="App Launcher searching for and opening the Knowledge app" /></div>
+        <figcaption class="figcap"><b>Into Knowledge.</b> Opening the Knowledge app to author and publish the articles.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS 03 -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Key results</span>
+      <h2>A searchable knowledge base, built around a blocker</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Category 1 Biking's FAQs now live where customers actually look, and the whole base was stood up despite the standard setup route being unavailable.</p>
+      <div class="stats">
+        <div class="stat"><div class="big">3 articles</div><div class="lbl">Live and public</div><div class="sub">Authored, marked visible to customers, and published to the community site.</div></div>
+        <div class="stat"><div class="big">Found the door</div><div class="lbl">When the path was blocked</div><div class="sub">Enabled Lightning Knowledge directly when the guided Service Setup was missing.</div></div>
+        <div class="stat"><div class="big">Deflection ready</div><div class="lbl">Self-service answers</div><div class="sub">Structured, topic-tagged articles that cut repeat questions to the team.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDY 04 ===================== -->
+<header class="wrap hero proj-start" id="case04">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Case Study 04 · Category 1 Biking</div>
+      <h1>Turning a list of articles into a navigable site</h1>
+      <p class="dek">Articles that exist but cannot be found may as well not exist. This is the information architecture layer: giving the community three clear topics to navigate by, dressing them with imagery, and tagging every article so it surfaces in the right place.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Client</div><div class="v">Category 1 Biking</div></div>
+      <div><div class="k">Focus</div><div class="v">Information Architecture</div></div>
+      <div><div class="k">Tool</div><div class="v">Content Management</div></div>
+      <div><div class="k">Surface</div><div class="v">Experience Cloud Site</div></div>
+    </div>
+  </div>
+  <div class="hero-media" style="margin-top:42px;">
+    <div class="browser">
+      <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Category 1 Biking · Home · Featured Topics live</span></div>
+      <img src="images/sc4-live-home.jpg" alt="Category 1 Biking community home page with Customer Support, Social Groups and New Products featured topics and trending articles" />
+    </div>
+    <div class="figcap"><b>The result.</b> The community home page, organised around three featured topics with imagery and trending articles surfacing beneath them.</div>
+  </div>
+</header>
+
+<!-- 01 CHALLENGE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">The Challenge</span>
+      <h2>Content with no map</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">The knowledge base was live, but the site had no structure to lead people to it. Category 1 Biking wanted the community to navigate around clear themes, and to grow that structure over time.</p>
+      <div class="cards">
+        <div class="card"><div class="n">01</div><h4>No wayfinding</h4><p>Nothing on the site told a visitor where to go or how the content was organised.</p></div>
+        <div class="card"><div class="n">02</div><h4>Flat and plain</h4><p>Even the right topics feel lifeless without imagery to invite a click.</p></div>
+        <div class="card"><div class="n">03</div><h4>Articles unlinked</h4><p>Each article sat on its own, unconnected to any theme a visitor might browse.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 NAV TOPICS -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">Navigational Topics</span>
+      <h2>Three ways to move through the site</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Working in the site's Content Management workspace, I defined three navigational topics that map to how the community actually thinks: Customer Support, Social Groups, and New Products.</p>
+      <div class="body"><p>Navigational topics become the site's menu. Keeping it to three is a deliberate IA choice: enough to cover the ground, few enough that no one feels lost. Structure first, then decorate.</p></div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Setup · All Sites · Category 1 Biking · Workspaces</span></div>
+            <img src="images/sc4-all-sites.jpg" alt="All Sites list with Category 1 Biking and its Workspaces link" /></div>
+          <div class="figcap"><b>Into the site.</b> Opening the Category 1 Biking workspaces from All Sites.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Workspaces · Content Management</span></div>
+            <img src="images/sc4-workspaces.jpg" alt="My Workspaces tiles including Content Management" /></div>
+          <div class="figcap"><b>Content Management.</b> Where topics, collections and articles are organised.</div>
+        </figure>
+      </div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Topics · Navigational Topics · 3 added</span></div>
+          <img src="images/sc4-nav-topics.jpg" alt="Navigational Topics list showing Customer Support, Social Groups and New Products" /></div>
+        <figcaption class="figcap"><b>The menu.</b> Customer Support, Social Groups and New Products, the three pillars of the site's navigation.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 03 FEATURED -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">Featured Topics &amp; Imagery</span>
+      <h2>Giving each topic a face</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Featured topics appear prominently on the home page, so I promoted all three and gave each a photograph: a support rep, a group ride, and a rider celebrating a new product.</p>
+      <div class="body"><p>Imagery is not decoration here, it is affordance. A photo tells a visitor at a glance what lives behind a tile, and makes the difference between a menu people scan past and one they click into.</p></div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Topics · Featured Topics · images added</span></div>
+          <img src="images/sc4-featured-topics.jpg" alt="Featured Topics with images for Customer Support, Social Groups and New Products" /></div>
+        <figcaption class="figcap"><b>Faces for the topics.</b> Each featured topic paired with a photograph that signals what it holds.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 04 TAGGING -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">Tagging the Articles</span>
+      <h2>Connecting content to its topic</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Structure only works if content is linked to it. In Article Management I assigned each of the three FAQ articles to its natural topic: delivery to Customer Support, bike groups to Social Groups, and the product question to New Products.</p>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Article Management · Add Topics · Customer Support</span></div>
+          <img src="images/sc4-add-topic.jpg" alt="Assigning the Customer Support topic to the When will my bike arrive article" /></div>
+        <figcaption class="figcap"><b>Making the link.</b> Tagging each article to its topic so it surfaces where visitors expect it.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 05 LIVE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">05</span>
+      <span class="kicker">Seeing It Live</span>
+      <h2>The structure, rendered</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Back in Experience Builder, the work came together on the home page: three image-led featured topics, a topics menu in the header, and trending articles pulling through automatically.</p>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Experience Builder · Home · Content Management menu</span></div>
+          <img src="images/sc4-builder-menu.jpg" alt="Experience Builder workspace menu with Builder selected for the Category 1 Biking site" /></div>
+        <figcaption class="figcap"><b>Into Builder.</b> Opening the site builder to see the topic structure rendered on the page.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS 04 -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Key results</span>
+      <h2>A site you can actually navigate</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Category 1 Biking's community now has a clear structure: three themed topics, each with a face, and every article tagged to surface in the right place.</p>
+      <div class="stats">
+        <div class="stat"><div class="big">3 topics</div><div class="lbl">Clear wayfinding</div><div class="sub">Customer Support, Social Groups and New Products, driving the site menu.</div></div>
+        <div class="stat"><div class="big">Image-led</div><div class="lbl">Inviting to click</div><div class="sub">Every featured topic paired with a photo that signals what it holds.</div></div>
+        <div class="stat"><div class="big">Every article tagged</div><div class="lbl">Content connected</div><div class="sub">Each FAQ linked to its topic so it appears where visitors look.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDY 05 ===================== -->
+<header class="wrap hero proj-start" id="case05">
+  <div class="herogrid">
+    <div class="hero-main">
+      <div class="eyebrow">Case Study 05 · Category 1 Biking</div>
+      <h1>Branding the site and proving the whole loop works</h1>
+      <p class="dek">The final layer: giving the site a face with custom branding, a Cases menu item and a header image, then publishing and testing the entire experience end to end, from a live chat to an asked question to a submitted case.</p>
+    </div>
+    <div class="meta">
+      <div><div class="k">Client</div><div class="v">Category 1 Biking</div></div>
+      <div><div class="k">Focus</div><div class="v">Branding · QA</div></div>
+      <div><div class="k">Tool</div><div class="v">Experience Builder</div></div>
+      <div><div class="k">Outcome</div><div class="v">Published &amp; Tested</div></div>
+    </div>
+  </div>
+  <div class="hero-media" style="margin-top:42px;">
+    <div class="browser">
+      <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Category 1 Biking · Published · header image, branding, Cases menu</span></div>
+      <img src="images/sc5-live-site.jpg" alt="Published Category 1 Biking community site with header image, welcome headline, featured topics and Cases in the navigation" />
+    </div>
+    <div class="figcap"><b>The result.</b> The finished, published community: branded header, welcome headline, featured topics and a Cases menu, live for members.</div>
+  </div>
+</header>
+
+<!-- 01 CHALLENGE -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">01</span>
+      <span class="kicker">The Challenge</span>
+      <h2>Functional, but not yet a brand</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Everything worked, but the site still wore the default template. It needed a headline that speaks to the community, colours and imagery that feel like Category 1 Biking, and a way to reach cases, before it was ready to publish.</p>
+      <div class="cards">
+        <div class="card"><div class="n">01</div><h4>Generic voice</h4><p>The default headline said nothing about who the community was for.</p></div>
+        <div class="card"><div class="n">02</div><h4>No brand feel</h4><p>Stock colours and no hero image left the site looking like a template.</p></div>
+        <div class="card"><div class="n">03</div><h4>Unproven</h4><p>Nothing had been tested end to end from a real customer's point of view.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 BRANDING -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">02</span>
+      <span class="kicker">Branding the Site</span>
+      <h2>Headline, theme and a header image</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">In Builder I gave the site a voice and a look: a "Category 1 Biking, Welcome to the community!" headline, adjusted theme colours, and a road-cycling header image to set the tone the moment a visitor lands.</p>
+      <div class="body"><p>Branding is not paint on top. The headline sets intent, the colours carry the identity, and the header image gives the page a sense of place, together they turn a functional template into somewhere the community feels they belong.</p></div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Builder · Headline · Category 1 Biking</span></div>
+            <img src="images/sc5-headline.jpg" alt="Editing the Headline component title and banner text in Experience Builder" /></div>
+          <div class="figcap"><b>The voice.</b> A welcoming headline and banner, set on the home page.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Builder · Theme · Colors &amp; Images</span></div>
+            <img src="images/sc5-theme.jpg" alt="Theme panel in Experience Builder with Colors, Images and Font options" /></div>
+          <div class="figcap"><b>The look.</b> Theme colours and imagery adjusted to the brand.</div>
+        </figure>
+      </div>
+      <figure class="media-lg" style="margin:0;">
+        <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Builder · Header image applied</span></div>
+          <img src="images/sc5-header-image.jpg" alt="Category 1 Biking home page in Builder with a road cycling header image applied" /></div>
+        <figcaption class="figcap"><b>A sense of place.</b> A road-cycling header image sets the tone the moment the page loads.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 03 NAV + PUBLISH -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">03</span>
+      <span class="kicker">Navigation &amp; Publish</span>
+      <h2>A Cases menu, then go live</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">I added a Cases item to the navigation menu, wired to the Case object with a My Open Cases list view, so members can track their own support requests. Then I published the site.</p>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Edit Default Navigation · Cases · Case · My Open Cases</span></div>
+            <img src="images/sc5-nav-cases.jpg" alt="Adding a Cases menu item pointing to the Case object with My Open Cases list view" /></div>
+          <div class="figcap"><b>Self-service cases.</b> A Cases menu item so members can track their own requests.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Home · Cases in the nav · ready to publish</span></div>
+            <img src="images/sc5-published-home.jpg" alt="Home page in Builder showing Home, Topics and Cases in the navigation menu" /></div>
+          <div class="figcap"><b>In the menu.</b> Home, Topics and Cases, then Publish.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 END TO END TEST -->
+<section class="sec">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">04</span>
+      <span class="kicker">Testing the Whole Loop</span>
+      <h2>Proving it from the customer's side</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">A build is not done until it is proven. I set Omni-Channel to Available Messaging, opened the live site, and walked the full journey a real member would: chat, ask a question, and open a support case.</p>
+      <div class="principles">
+        <div class="principle"><div class="ix">A</div><h4>Live chat</h4><p>Started a chat from the site and accepted it in the Service Console, confirming the whole routing chain works in production.</p></div>
+        <div class="principle"><div class="ix">B</div><h4>Ask a question</h4><p>Posted a New Products question from the site and watched it appear under the right topic.</p></div>
+        <div class="principle"><div class="ix">C</div><h4>Create a case</h4><p>Created a new contact and submitted a case through Contact Support, end to end.</p></div>
+        <div class="principle"><div class="ix">D</div><h4>Verify in Cases</h4><p>Confirmed the new case appeared in the My Open Cases list on the site's Cases menu.</p></div>
+      </div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Service Console · Omni-Channel · Available Messaging</span></div>
+            <img src="images/sc5-omni-available.jpg" alt="Omni-Channel set to Available Messaging in the Service Console" /></div>
+          <div class="figcap"><b>Agent online.</b> Omni-Channel set to Available Messaging to receive chats.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Site · Ask a Question · New Products</span></div>
+            <img src="images/sc5-ask-question.jpg" alt="Asking a question on the live site, posted to the New Products topic" /></div>
+          <div class="figcap"><b>Asking a question.</b> Posting to New Products from the live site.</div>
+        </figure>
+      </div>
+      <div class="duo">
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Site · Contact Support · New Contact</span></div>
+            <img src="images/sc5-new-contact.jpg" alt="Creating a new contact while submitting a case from the site" /></div>
+          <div class="figcap"><b>Creating a case.</b> Adding a contact and submitting a support case.</div>
+        </figure>
+        <figure style="margin:0;">
+          <div class="browser"><div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">Site · Cases · My Open Cases</span></div>
+            <img src="images/sc5-cases-list.jpg" alt="My Open Cases list on the site showing the newly submitted case" /></div>
+          <div class="figcap"><b>Confirmed.</b> The new case appears in My Open Cases, the loop is closed.</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS 05 -->
+<section class="sec band">
+  <div class="wrap secgrid">
+    <header class="sec-label">
+      <span class="sec-num">·</span>
+      <span class="kicker">Key results</span>
+      <h2>A complete, branded, self-service community</h2>
+    </header>
+    <div class="sec-body stack">
+      <p class="lead">Category 1 Biking fans can now engage with the company and each other in a whole new way: branded knowledge organised by topic, a live chat button, a way to ask questions, and self-service cases, all proven end to end.</p>
+      <div class="stats">
+        <div class="stat"><div class="big">Fully branded</div><div class="lbl">Feels like the brand</div><div class="sub">Custom headline, theme colours and header image on top of the working system.</div></div>
+        <div class="stat"><div class="big">One loop</div><div class="lbl">Chat, ask, case</div><div class="sub">Every path a member can take, tested live from the customer's side.</div></div>
+        <div class="stat"><div class="big">Self-service</div><div class="lbl">Members in control</div><div class="sub">Knowledge, discussions and a My Open Cases view, all in one community.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- next project + contact -->
+<section class="wrap" style="padding-top:60px;padding-bottom:10px;">
+  <div style="border-top:1px solid var(--hair);padding-top:38px;padding-bottom:34px;display:flex;flex-wrap:wrap;gap:22px;justify-content:space-between;align-items:center;">
+    <div style="min-width:0;">
+      <div class="kicker" style="margin-bottom:10px;">Next case study</div>
+      <a href="salesforce.html" style="font-family:var(--mono);font-weight:600;font-size:clamp(20px,2.4vw,28px);line-height:1.2;letter-spacing:-.01em;text-transform:lowercase;color:var(--ink);text-decoration:none;">salesforce ui/ux strategy &#8594;</a>
+    </div>
+    <a href="about.html#contact" style="font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.3px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:999px;padding:12px 20px;white-space:nowrap;">Like this thinking? Let&#8217;s talk &#8594;</a>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <div class="big">service, designed end to end.</div>
+    <div class="credit">Service Cloud &amp; Experience Cloud · Dapo George</div>
+  </div>
+</footer>
+
+<script>
+  const prog=document.getElementById('progress');
+  function onScroll(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;prog.style.width=(max>0?(h.scrollTop/max*100):0)+'%';}
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+<script>
+  (function(){
+    var last=0;
+    function postH(){var hh=Math.ceil(document.body.getBoundingClientRect().height);if(hh&&Math.abs(hh-last)>1){last=hh;parent.postMessage({type:'cs-embed-height',height:hh},'*');}}
+    function deb(){clearTimeout(window.__csrt);window.__csrt=setTimeout(postH,150);}
+    window.addEventListener('load',postH);window.addEventListener('resize',deb);
+    if(window.ResizeObserver){new ResizeObserver(deb).observe(document.body);}
+    [300,800,1500,2500].forEach(function(t){setTimeout(postH,t);});
+  })();
+</script>
+</body>
+</html>
