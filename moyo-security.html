@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 function build(){
   if(!document.body||document.getElementById("__pf_nav"))return;
   var here=(location.pathname.split("/").pop()||"index.html").toLowerCase(); if(here==="")here="index.html";
-  var WORK=[["Salesforce UX","../salesforce.html"],["AI & Agentforce","../ai-agentforce.html"],["Prompt Engineering","../prompt-engineering.html"],["The Design Lab","../design-lab.html"],["Service & Experience Cloud","../service-cloud.html"],["Moyo Exchange","index.html"]];
+  var WORK=[["Salesforce UX","../salesforce.html"],["AI & Agentforce","../ai-agentforce.html"],["Prompt Engineering","../prompt-engineering.html"],["The Design Lab","../design-lab.html"],["Salesforce Experience Cloud","../service-cloud.html"],["Moyo Exchange","index.html"]];
   var CHAP=[["Overview","index.html"],["Prototype","moyo-prototype.html"],["Hi-Fi screens","moyo-hifi-screens.html"],["Wireframes","moyo-wireframes.html"],["Blueprint","moyo-blueprint.html"],["Accessibility","moyo-accessibility.html"],["Security","moyo-security.html"]];
   var curC=null; for(var i=0;i<CHAP.length;i++){if(CHAP[i][1]===here)curC=CHAP[i];}
   if(!document.getElementById("__pf_nav_css")){
@@ -267,7 +267,7 @@ function build(){
   btn.onclick=function(e){e.preventDefault();var op=sheet.classList.contains("open");closeAll();if(!op)sheet.classList.add("open");};
   bwrap.appendChild(btn);bwrap.appendChild(sheet);row.appendChild(bwrap);
   document.body.appendChild(bar);
-  if(!document.getElementById("__pf_logo")){var lg=document.createElement("a");lg.id="__pf_logo";lg.href="../index.html";lg.setAttribute("aria-label","Dapo George home");var lgi=document.createElement("img");lgi.src="../images/logo-dg.png";lgi.alt="Dapo George";lg.appendChild(lgi);document.body.appendChild(lg);}
+  var _intr=(here==="moyo-prototype.html"||here==="moyo-hifi-screens.html"||here==="moyo-wireframes.html");if(_intr){if(!document.getElementById("__pf_pilllogo")){var pl=document.createElement("a");pl.id="__pf_pilllogo";pl.href="../index.html";pl.setAttribute("aria-label","Dapo George home");pl.style.cssText="display:inline-flex;padding:0;margin-right:5px;flex:none;";var pli=document.createElement("img");pli.src="../images/logo-dg.png";pli.alt="Dapo George";pli.style.cssText="width:26px;height:26px;border-radius:50%;display:block;";pl.appendChild(pli);row.insertBefore(pl,row.firstChild);}}else if(!document.getElementById("__pf_logo")){var lg=document.createElement("a");lg.id="__pf_logo";lg.href="../index.html";lg.setAttribute("aria-label","Dapo George home");var lgi=document.createElement("img");lgi.src="../images/logo-dg.png";lgi.alt="Dapo George";lg.appendChild(lgi);document.body.appendChild(lg);}
 }
 document.addEventListener("click",function(e){if(!(e.target.closest&&e.target.closest("#__pf_nav"))){var m=document.querySelectorAll("#__pf_nav .pf-menu");for(var k=0;k<m.length;k++)m[k].classList.remove("open");}});
 var n=0,t=setInterval(function(){build();if(++n>60)clearInterval(t);},350);window.addEventListener("load",build);

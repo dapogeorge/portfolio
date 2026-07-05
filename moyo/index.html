@@ -221,16 +221,22 @@ document.addEventListener('DOMContentLoaded', async function() {
 function build(){
   if(!document.body||document.getElementById("__pf_nav"))return;
   var here=(location.pathname.split("/").pop()||"index.html").toLowerCase(); if(here==="")here="index.html";
-  var WORK=[["Salesforce UX","../salesforce.html"],["AI & Agentforce","../ai-agentforce.html"],["Prompt Engineering","../prompt-engineering.html"],["The Design Lab","../design-lab.html"],["Moyo Exchange","index.html"]];
+  var WORK=[["Salesforce UX","../salesforce.html"],["AI & Agentforce","../ai-agentforce.html"],["Prompt Engineering","../prompt-engineering.html"],["The Design Lab","../design-lab.html"],["Salesforce Experience Cloud","../service-cloud.html"],["Moyo Exchange","index.html"]];
   var CHAP=[["Overview","index.html"],["Prototype","moyo-prototype.html"],["Hi-Fi screens","moyo-hifi-screens.html"],["Wireframes","moyo-wireframes.html"],["Blueprint","moyo-blueprint.html"],["Accessibility","moyo-accessibility.html"],["Security","moyo-security.html"]];
   var curC=null; for(var i=0;i<CHAP.length;i++){if(CHAP[i][1]===here)curC=CHAP[i];}
   if(!document.getElementById("__pf_nav_css")){
+    if(!document.getElementById("__pf_font")){var lf=document.createElement("link");lf.id="__pf_font";lf.rel="stylesheet";lf.href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap";document.head.appendChild(lf);}
     var st=document.createElement("style"); st.id="__pf_nav_css";
-    st.textContent="#__pf_nav{position:fixed;top:12px;right:12px;z-index:2147483647;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}"
+    st.textContent="#__pf_nav{position:fixed;top:12px;right:12px;z-index:2147483647;font-family:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}"
+    +"#__pf_logo{position:fixed;top:15px;left:88px;z-index:2147483647;display:block;width:70px;height:70px;border-radius:50%;box-shadow:0 6px 18px rgba(10,23,48,.26);transition:transform .15s ease,box-shadow .15s ease;}"
+    +"#__pf_logo img{width:100%;height:100%;display:block;border-radius:50%;}"
+    +"#__pf_logo:hover{transform:translateY(-1px) scale(1.05);box-shadow:0 10px 26px rgba(10,23,48,.34);}"
+    +"@media(max-width:900px){#__pf_logo{left:40px;width:60px;height:60px;}}"
+    +"@media(max-width:640px){#__pf_logo{left:16px;top:12px;width:48px;height:48px;}}"
     +"#__pf_nav .pfbar{display:flex;align-items:center;gap:3px;padding:6px 8px;background:rgba(15,37,48,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.3);max-width:calc(100vw - 24px);}"
-    +"#__pf_nav a,#__pf_nav button{color:#cfe3e0;font:600 12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.2px;text-decoration:none;padding:7px 10px;border-radius:999px;white-space:nowrap;background:transparent;border:0;cursor:pointer;}"
+    +"#__pf_nav a,#__pf_nav button{color:#cfe3e0;font:600 12px/1 'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.2px;text-decoration:none;padding:7px 10px;border-radius:999px;white-space:nowrap;background:transparent;border:0;cursor:pointer;}"
     +"#__pf_nav a:hover,#__pf_nav button:hover{color:#fff;background:rgba(255,255,255,.08);}"
-    +"#__pf_nav a.brand{color:#fff;}"
+    
     +"#__pf_nav .cur{color:#7fd6c2;background:rgba(127,214,194,.14);}"
     +"#__pf_nav .dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.3);margin:0 3px;padding:0;}"
     +"#__pf_nav .pf-wrap{position:relative;display:inline-flex;}"
@@ -254,7 +260,7 @@ function build(){
   }
   var bar=document.createElement("nav"); bar.id="__pf_nav";
   var row=document.createElement("div"); row.className="pfbar"; bar.appendChild(row);
-  var brand=mkA("Dapo George","../index.html",false);brand.className="brand";row.appendChild(brand);
+  
   var inline=document.createElement("span");inline.className="pf-inline";inline.style.cssText="display:flex;align-items:center;gap:3px;";
   var dot=document.createElement("span");dot.className="dot";inline.appendChild(dot);
   inline.appendChild(mkA("Home","../index.html",false));
@@ -277,6 +283,7 @@ function build(){
   btn.onclick=function(e){e.preventDefault();var op=sheet.classList.contains("open");closeAll();if(!op)sheet.classList.add("open");};
   bwrap.appendChild(btn);bwrap.appendChild(sheet);row.appendChild(bwrap);
   document.body.appendChild(bar);
+  var _intr=(here==="moyo-prototype.html"||here==="moyo-hifi-screens.html"||here==="moyo-wireframes.html");if(_intr){if(!document.getElementById("__pf_pilllogo")){var pl=document.createElement("a");pl.id="__pf_pilllogo";pl.href="../index.html";pl.setAttribute("aria-label","Dapo George home");pl.style.cssText="display:inline-flex;padding:0;margin-right:5px;flex:none;";var pli=document.createElement("img");pli.src="../images/logo-dg.png";pli.alt="Dapo George";pli.style.cssText="width:26px;height:26px;border-radius:50%;display:block;";pl.appendChild(pli);row.insertBefore(pl,row.firstChild);}}else if(!document.getElementById("__pf_logo")){var lg=document.createElement("a");lg.id="__pf_logo";lg.href="../index.html";lg.setAttribute("aria-label","Dapo George home");var lgi=document.createElement("img");lgi.src="../images/logo-dg.png";lgi.alt="Dapo George";lg.appendChild(lgi);document.body.appendChild(lg);}
 }
 document.addEventListener("click",function(e){if(!(e.target.closest&&e.target.closest("#__pf_nav"))){var m=document.querySelectorAll("#__pf_nav .pf-menu");for(var k=0;k<m.length;k++)m[k].classList.remove("open");}});
 var n=0,t=setInterval(function(){build();if(++n>60)clearInterval(t);},350);window.addEventListener("load",build);
